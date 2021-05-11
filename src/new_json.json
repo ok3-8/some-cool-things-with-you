@@ -1,0 +1,319 @@
+{
+	"ocean": [
+		{
+			"id": "8ab99aab-a98a-49a9-a8a9-abb998a8abaa",
+			"language": "javascript",
+			"description": " Use meaningful and pronounceable variable names\n\n",
+			"bad_code": "\n\n```javascript\nconst yyyymmdstr = moment().format(\"YYYY/MM/DD\");\n```\n\n",
+			"good_code": "\n\n```javascript\nconst currentDate = moment().format(\"YYYY/MM/DD\");\n```\n\n"
+		},
+		{
+			"id": "99aa9999-b989-48aa-8b8a-999aba8a9ab9",
+			"language": "javascript",
+			"description": " Use the same vocabulary for the same type of variable\n\n",
+			"bad_code": "\n\n```javascript\ngetUserInfo();\ngetClientData();\ngetCustomerRecord();\n```\n\n",
+			"good_code": "\n\n```javascript\ngetUser();\n```\n\n"
+		},
+		{
+			"id": "88abb9b9-98a9-49b8-bb98-aaaa88b8898b",
+			"language": "javascript",
+			"description": " Use searchable names\n\nWe will read more code than we will ever write. It's important that the code we\ndo write is readable and searchable. By _not_ naming variables that end up\nbeing meaningful for understanding our program, we hurt our readers.\nMake your names searchable. Tools like\n[buddy.js](https://github.com/danielstjules/buddy.js) and\n[ESLint](https://github.com/eslint/eslint/blob/660e0918933e6e7fede26bc675a0763a6b357c94/docs/rules/no-magic-numbers.md)\ncan help identify unnamed constants.\n\n",
+			"bad_code": "\n\n```javascript\n// What the heck is 86400000 for?\nsetTimeout(blastOff, 86400000);\n```\n\n",
+			"good_code": "\n\n```javascript\n// Declare them as capitalized named constants.\nconst MILLISECONDS_IN_A_DAY = 60 * 60 * 24 * 1000; //86400000;\n\nsetTimeout(blastOff, MILLISECONDS_IN_A_DAY);\n```\n\n"
+		},
+		{
+			"id": "8898a9b8-8b8a-4b98-b9ab-899a8aa9b889",
+			"language": "javascript",
+			"description": " Use explanatory variables\n\n",
+			"bad_code": "\n\n```javascript\nconst address = \"One Infinite Loop, Cupertino 95014\";\nconst cityZipCodeRegex = /^[^,\\\\]+[,\\\\\\s]+(.+?)\\s*(\\d{5})?$/;\nsaveCityZipCode(\n  address.match(cityZipCodeRegex)[1],\n  address.match(cityZipCodeRegex)[2]\n);\n```\n\n",
+			"good_code": "\n\n```javascript\nconst address = \"One Infinite Loop, Cupertino 95014\";\nconst cityZipCodeRegex = /^[^,\\\\]+[,\\\\\\s]+(.+?)\\s*(\\d{5})?$/;\nconst [_, city, zipCode] = address.match(cityZipCodeRegex) || [];\nsaveCityZipCode(city, zipCode);\n```\n\n"
+		},
+		{
+			"id": "89aaa988-9a99-498a-b98b-8b89aa8ab889",
+			"language": "javascript",
+			"description": " Avoid Mental Mapping\n\nExplicit is better than implicit.\n\n",
+			"bad_code": "\n\n```javascript\nconst locations = [\"Austin\", \"New York\", \"San Francisco\"];\nlocations.forEach(l => {\n  doStuff();\n  doSomeOtherStuff();\n  // ...\n  // ...\n  // ...\n  // Wait, what is `l` for again?\n  dispatch(l);\n});\n```\n\n",
+			"good_code": "\n\n```javascript\nconst locations = [\"Austin\", \"New York\", \"San Francisco\"];\nlocations.forEach(location => {\n  doStuff();\n  doSomeOtherStuff();\n  // ...\n  // ...\n  // ...\n  dispatch(location);\n});\n```\n\n"
+		},
+		{
+			"id": "8b8a8aba-b8aa-4bbb-bb98-b9ab8aabbbba",
+			"language": "javascript",
+			"description": " Don't add unneeded context\n\nIf your class/object name tells you something, don't repeat that in your\nvariable name.\n\n",
+			"bad_code": "\n\n```javascript\nconst Car = {\n  carMake: \"Honda\",\n  carModel: \"Accord\",\n  carColor: \"Blue\"\n};\n\nfunction paintCar(car) {\n  car.carColor = \"Red\";\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nconst Car = {\n  make: \"Honda\",\n  model: \"Accord\",\n  color: \"Blue\"\n};\n\nfunction paintCar(car) {\n  car.color = \"Red\";\n}\n```\n\n"
+		},
+		{
+			"id": "bba889aa-9aab-49aa-a8ba-a9a99bbb899b",
+			"language": "javascript",
+			"description": " Use default arguments instead of short circuiting or conditionals\n\nDefault arguments are often cleaner than short circuiting. Be aware that if you\nuse them, your function will only provide default values for `undefined`\narguments. Other \"falsy\" values such as `''`, `\"\"`, `false`, `null`, `0`, and\n`NaN`, will not be replaced by a default value.\n\n",
+			"bad_code": "\n\n```javascript\nfunction createMicrobrewery(name) {\n  const breweryName = name || \"Hipster Brew Co.\";\n  // ...\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction createMicrobrewery(name = \"Hipster Brew Co.\") {\n  // ...\n}\n```\n\n"
+		},
+		{
+			"id": "a988a8a8-9bbb-488a-8a9a-ba89a98ab9a9",
+			"language": "javascript",
+			"description": " Function arguments (2 or fewer ideally)\n\nLimiting the amount of function parameters is incredibly important because it\nmakes testing your function easier. Having more than three leads to a\ncombinatorial explosion where you have to test tons of different cases with\neach separate argument.\n\nOne or two arguments is the ideal case, and three should be avoided if possible.\nAnything more than that should be consolidated. Usually, if you have\nmore than two arguments then your function is trying to do too much. In cases\nwhere it's not, most of the time a higher-level object will suffice as an\nargument.\n\nSince JavaScript allows you to make objects on the fly, without a lot of class\nboilerplate, you can use an object if you are finding yourself needing a\nlot of arguments.\n\nTo make it obvious what properties the function expects, you can use the ES2015/ES6\ndestructuring syntax. This has a few advantages:\n\n1. When someone looks at the function signature, it's immediately clear what\n   properties are being used.\n2. It can be used to simulate named parameters.\n3. Destructuring also clones the specified primitive values of the argument\n   object passed into the function. This can help prevent side effects. Note:\n   objects and arrays that are destructured from the argument object are NOT\n   cloned.\n4. Linters can warn you about unused properties, which would be impossible\n   without destructuring.\n\n",
+			"bad_code": "\n\n```javascript\nfunction createMenu(title, body, buttonText, cancellable) {\n  // ...\n}\n\ncreateMenu(\"Foo\", \"Bar\", \"Baz\", true);\n\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction createMenu({ title, body, buttonText, cancellable }) {\n  // ...\n}\n\ncreateMenu({\n  title: \"Foo\",\n  body: \"Bar\",\n  buttonText: \"Baz\",\n  cancellable: true\n});\n```\n\n"
+		},
+		{
+			"id": "8a8989b8-9a9b-4a9a-8baa-babbb8abb8a9",
+			"language": "javascript",
+			"description": " Functions should do one thing\n\nThis is by far the most important rule in software engineering. When functions\ndo more than one thing, they are harder to compose, test, and reason about.\nWhen you can isolate a function to just one action, it can be refactored\neasily and your code will read much cleaner. If you take nothing else away from\nthis guide other than this, you'll be ahead of many developers.\n\n",
+			"bad_code": "\n\n```javascript\nfunction emailClients(clients) {\n  clients.forEach(client => {\n    const clientRecord = database.lookup(client);\n    if (clientRecord.isActive()) {\n      email(client);\n    }\n  });\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction emailActiveClients(clients) {\n  clients.filter(isActiveClient).forEach(email);\n}\n\nfunction isActiveClient(client) {\n  const clientRecord = database.lookup(client);\n  return clientRecord.isActive();\n}\n```\n\n"
+		},
+		{
+			"id": "b9aaa8bb-bab9-4a9b-88b8-aab899bb9a99",
+			"language": "javascript",
+			"description": " Function names should say what they do\n\n",
+			"bad_code": "\n\n```javascript\nfunction addToDate(date, month) {\n  // ...\n}\n\nconst date = new Date();\n\n// It's hard to tell from the function name what is added\naddToDate(date, 1);\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction addMonthToDate(month, date) {\n  // ...\n}\n\nconst date = new Date();\naddMonthToDate(1, date);\n```\n\n"
+		},
+		{
+			"id": "8998a9ab-aa9a-4aa8-8b9a-a998a9b88aab",
+			"language": "javascript",
+			"description": " Functions should only be one level of abstraction\n\nWhen you have more than one level of abstraction your function is usually\ndoing too much. Splitting up functions leads to reusability and easier\ntesting.\n\n",
+			"bad_code": "\n\n```javascript\nfunction parseBetterJSAlternative(code) {\n  const REGEXES = [\n    // ...\n  ];\n\n  const statements = code.split(\" \");\n  const tokens = [];\n  REGEXES.forEach(REGEX => {\n    statements.forEach(statement => {\n      // ...\n    });\n  });\n\n  const ast = [];\n  tokens.forEach(token => {\n    // lex...\n  });\n\n  ast.forEach(node => {\n    // parse...\n  });\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction parseBetterJSAlternative(code) {\n  const tokens = tokenize(code);\n  const syntaxTree = parse(tokens);\n  syntaxTree.forEach(node => {\n    // parse...\n  });\n}\n\nfunction tokenize(code) {\n  const REGEXES = [\n    // ...\n  ];\n\n  const statements = code.split(\" \");\n  const tokens = [];\n  REGEXES.forEach(REGEX => {\n    statements.forEach(statement => {\n      tokens.push(/* ... */);\n    });\n  });\n\n  return tokens;\n}\n\nfunction parse(tokens) {\n  const syntaxTree = [];\n  tokens.forEach(token => {\n    syntaxTree.push(/* ... */);\n  });\n\n  return syntaxTree;\n}\n```\n\n"
+		},
+		{
+			"id": "8ab8988a-9b98-4898-a899-ab88999a9bbb",
+			"language": "javascript",
+			"description": " Remove duplicate code\n\nDo your absolute best to avoid duplicate code. Duplicate code is bad because it\nmeans that there's more than one place to alter something if you need to change\nsome logic.\n\nImagine if you run a restaurant and you keep track of your inventory: all your\ntomatoes, onions, garlic, spices, etc. If you have multiple lists that\nyou keep this on, then all have to be updated when you serve a dish with\ntomatoes in them. If you only have one list, there's only one place to update!\n\nOftentimes you have duplicate code because you have two or more slightly\ndifferent things, that share a lot in common, but their differences force you\nto have two or more separate functions that do much of the same things. Removing\nduplicate code means creating an abstraction that can handle this set of\ndifferent things with just one function/module/class.\n\nGetting the abstraction right is critical, that's why you should follow the\nSOLID principles laid out in the _Classes_ section. Bad abstractions can be\nworse than duplicate code, so be careful! Having said this, if you can make\na good abstraction, do it! Don't repeat yourself, otherwise you'll find yourself\nupdating multiple places anytime you want to change one thing.\n\n",
+			"bad_code": "\n\n```javascript\nfunction showDeveloperList(developers) {\n  developers.forEach(developer => {\n    const expectedSalary = developer.calculateExpectedSalary();\n    const experience = developer.getExperience();\n    const githubLink = developer.getGithubLink();\n    const data = {\n      expectedSalary,\n      experience,\n      githubLink\n    };\n\n    render(data);\n  });\n}\n\nfunction showManagerList(managers) {\n  managers.forEach(manager => {\n    const expectedSalary = manager.calculateExpectedSalary();\n    const experience = manager.getExperience();\n    const portfolio = manager.getMBAProjects();\n    const data = {\n      expectedSalary,\n      experience,\n      portfolio\n    };\n\n    render(data);\n  });\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction showEmployeeList(employees) {\n  employees.forEach(employee => {\n    const expectedSalary = employee.calculateExpectedSalary();\n    const experience = employee.getExperience();\n\n    const data = {\n      expectedSalary,\n      experience\n    };\n\n    switch (employee.type) {\n      case \"manager\":\n        data.portfolio = employee.getMBAProjects();\n        break;\n      case \"developer\":\n        data.githubLink = employee.getGithubLink();\n        break;\n    }\n\n    render(data);\n  });\n}\n```\n\n"
+		},
+		{
+			"id": "a8a9b99a-a898-4a88-a98a-9abb8898ab8a",
+			"language": "javascript",
+			"description": " Set default objects with Object.assign\n\n",
+			"bad_code": "\n\n```javascript\nconst menuConfig = {\n  title: null,\n  body: \"Bar\",\n  buttonText: null,\n  cancellable: true\n};\n\nfunction createMenu(config) {\n  config.title = config.title || \"Foo\";\n  config.body = config.body || \"Bar\";\n  config.buttonText = config.buttonText || \"Baz\";\n  config.cancellable =\n    config.cancellable !== undefined ? config.cancellable : true;\n}\n\ncreateMenu(menuConfig);\n```\n\n",
+			"good_code": "\n\n```javascript\nconst menuConfig = {\n  title: \"Order\",\n  // User did not include 'body' key\n  buttonText: \"Send\",\n  cancellable: true\n};\n\nfunction createMenu(config) {\n  let finalConfig = Object.assign(\n    {\n      title: \"Foo\",\n      body: \"Bar\",\n      buttonText: \"Baz\",\n      cancellable: true\n    },\n    config\n  );\n  return finalConfig\n  // config now equals: {title: \"Order\", body: \"Bar\", buttonText: \"Send\", cancellable: true}\n  // ...\n}\n\ncreateMenu(menuConfig);\n```\n\n"
+		},
+		{
+			"id": "babb98ab-baaa-4bb8-8899-aababb98a9ab",
+			"language": "javascript",
+			"description": " Don't use flags as function parameters\n\nFlags tell your user that this function does more than one thing. Functions should do one thing. Split out your functions if they are following different code paths based on a boolean.\n\n",
+			"bad_code": "\n\n```javascript\nfunction createFile(name, temp) {\n  if (temp) {\n    fs.create(`./temp/${name}`);\n  } else {\n    fs.create(name);\n  }\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction createFile(name) {\n  fs.create(name);\n}\n\nfunction createTempFile(name) {\n  createFile(`./temp/${name}`);\n}\n```\n\n"
+		},
+		{
+			"id": "8a88b889-8bb9-4a98-b8a9-9b9baa8b9aa9",
+			"language": "javascript",
+			"description": " Avoid Side Effects (part 1)\n\nA function produces a side effect if it does anything other than take a value in\nand return another value or values. A side effect could be writing to a file,\nmodifying some global variable, or accidentally wiring all your money to a\nstranger.\n\nNow, you do need to have side effects in a program on occasion. Like the previous\nexample, you might need to write to a file. What you want to do is to\ncentralize where you are doing this. Don't have several functions and classes\nthat write to a particular file. Have one service that does it. One and only one.\n\nThe main point is to avoid common pitfalls like sharing state between objects\nwithout any structure, using mutable data types that can be written to by anything,\nand not centralizing where your side effects occur. If you can do this, you will\nbe happier than the vast majority of other programmers.\n\n",
+			"bad_code": "\n\n```javascript\n// Global variable referenced by following function.\n// If we had another function that used this name, now it'd be an array and it could break it.\nlet name = \"Ryan McDermott\";\n\nfunction splitIntoFirstAndLastName() {\n  name = name.split(\" \");\n}\n\nsplitIntoFirstAndLastName();\n\nconsole.log(name); // ['Ryan', 'McDermott'];\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction splitIntoFirstAndLastName(name) {\n  return name.split(\" \");\n}\n\nconst name = \"Ryan McDermott\";\nconst newName = splitIntoFirstAndLastName(name);\n\nconsole.log(name); // 'Ryan McDermott';\nconsole.log(newName); // ['Ryan', 'McDermott'];\n```\n\n"
+		},
+		{
+			"id": "b8b9bba8-b9a8-4ab8-88bb-ab8aa9888b99",
+			"language": "javascript",
+			"description": " Avoid Side Effects (part 2)\n\nIn JavaScript, some values are unchangeable (immutable) and some are changeable \n(mutable). Objects and arrays are two kinds of mutable values so it's important \nto handle them carefully when they're passed as parameters to a function. A \nJavaScript function can change an object's properties or alter the contents of \nan array which could easily cause bugs elsewhere.\n\nSuppose there's a function that accepts an array parameter representing a \nshopping cart. If the function makes a change in that shopping cart array - \nby adding an item to purchase, for example - then any other function that \nuses that same `cart` array will be affected by this addition. That may be \ngreat, however it could also be bad. Let's imagine a bad situation:\n\nThe user clicks the \"Purchase\" button which calls a `purchase` function that\nspawns a network request and sends the `cart` array to the server. Because\nof a bad network connection, the `purchase` function has to keep retrying the\nrequest. Now, what if in the meantime the user accidentally clicks an \"Add to Cart\"\nbutton on an item they don't actually want before the network request begins?\nIf that happens and the network request begins, then that purchase function\nwill send the accidentally added item because the `cart` array was modified.\n\nA great solution would be for the `addItemToCart` function to always clone the \n`cart`, edit it, and return the clone. This would ensure that functions that are still\nusing the old shopping cart wouldn't be affected by the changes.\n\nTwo caveats to mention to this approach:\n\n1. There might be cases where you actually want to modify the input object,\n   but when you adopt this programming practice you will find that those cases\n   are pretty rare. Most things can be refactored to have no side effects!\n\n2. Cloning big objects can be very expensive in terms of performance. Luckily,\n   this isn't a big issue in practice because there are\n   [great libraries](https://facebook.github.io/immutable-js/) that allow\n   this kind of programming approach to be fast and not as memory intensive as\n   it would be for you to manually clone objects and arrays.\n\n",
+			"bad_code": "\n\n```javascript\nconst addItemToCart = (cart, item) => {\n  cart.push({ item, date: Date.now() });\n};\n```\n\n",
+			"good_code": "\n\n```javascript\nconst addItemToCart = (cart, item) => {\n  return [...cart, { item, date: Date.now() }];\n};\n```\n\n"
+		},
+		{
+			"id": "b8b89b8b-ab88-49bb-bb88-ab8aabaa8989",
+			"language": "javascript",
+			"description": " Don't write to global functions\n\nPolluting globals is a bad practice in JavaScript because you could clash with another\nlibrary and the user of your API would be none-the-wiser until they get an\nexception in production. Let's think about an example: what if you wanted to\nextend JavaScript's native Array method to have a `diff` method that could\nshow the difference between two arrays? You could write your new function\nto the `Array.prototype`, but it could clash with another library that tried\nto do the same thing. What if that other library was just using `diff` to find\nthe difference between the first and last elements of an array? This is why it\nwould be much better to just use ES2015/ES6 classes and simply extend the `Array` global.\n\n",
+			"bad_code": "\n\n```javascript\nArray.prototype.diff = function diff(comparisonArray) {\n  const hash = new Set(comparisonArray);\n  return this.filter(elem => !hash.has(elem));\n};\n```\n\n",
+			"good_code": "\n\n```javascript\nclass SuperArray extends Array {\n  diff(comparisonArray) {\n    const hash = new Set(comparisonArray);\n    return this.filter(elem => !hash.has(elem));\n  }\n}\n```\n\n"
+		},
+		{
+			"id": "bb9a9bb8-ab9a-4aaa-b9ab-9ab8bb89aaba",
+			"language": "javascript",
+			"description": " Favor functional programming over imperative programming\n\nJavaScript isn't a functional language in the way that Haskell is, but it has\na functional flavor to it. Functional languages can be cleaner and easier to test.\nFavor this style of programming when you can.\n\n",
+			"bad_code": "\n\n```javascript\nconst programmerOutput = [\n  {\n    name: \"Uncle Bobby\",\n    linesOfCode: 500\n  },\n  {\n    name: \"Suzie Q\",\n    linesOfCode: 1500\n  },\n  {\n    name: \"Jimmy Gosling\",\n    linesOfCode: 150\n  },\n  {\n    name: \"Gracie Hopper\",\n    linesOfCode: 1000\n  }\n];\n\nlet totalOutput = 0;\n\nfor (let i = 0; i < programmerOutput.length; i++) {\n  totalOutput += programmerOutput[i].linesOfCode;\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nconst programmerOutput = [\n  {\n    name: \"Uncle Bobby\",\n    linesOfCode: 500\n  },\n  {\n    name: \"Suzie Q\",\n    linesOfCode: 1500\n  },\n  {\n    name: \"Jimmy Gosling\",\n    linesOfCode: 150\n  },\n  {\n    name: \"Gracie Hopper\",\n    linesOfCode: 1000\n  }\n];\n\nconst totalOutput = programmerOutput.reduce(\n  (totalLines, output) => totalLines + output.linesOfCode,\n  0\n);\n```\n\n"
+		},
+		{
+			"id": "9a9b898b-9899-4bba-a988-ab8ba9ab89a8",
+			"language": "javascript",
+			"description": " Encapsulate conditionals\n\n",
+			"bad_code": "\n\n```javascript\nif (fsm.state === \"fetching\" && isEmpty(listNode)) {\n  // ...\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction shouldShowSpinner(fsm, listNode) {\n  return fsm.state === \"fetching\" && isEmpty(listNode);\n}\n\nif (shouldShowSpinner(fsmInstance, listNodeInstance)) {\n  // ...\n}\n```\n\n"
+		},
+		{
+			"id": "99a98ba9-88b9-498b-baaa-ba9a9b98aa99",
+			"language": "javascript",
+			"description": " Avoid negative conditionals\n\n",
+			"bad_code": "\n\n```javascript\nfunction isDOMNodeNotPresent(node) {\n  // ...\n}\n\nif (!isDOMNodeNotPresent(node)) {\n  // ...\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction isDOMNodePresent(node) {\n  // ...\n}\n\nif (isDOMNodePresent(node)) {\n  // ...\n}\n```\n\n"
+		},
+		{
+			"id": "898898aa-a88b-4998-8ba8-98b9b88b8889",
+			"language": "javascript",
+			"description": " Avoid conditionals\n\nThis seems like an impossible task. Upon first hearing this, most people say,\n\"how am I supposed to do anything without an `if` statement?\" The answer is that\nyou can use polymorphism to achieve the same task in many cases. The second\nquestion is usually, \"well that's great but why would I want to do that?\" The\nanswer is a previous clean code concept we learned: a function should only do\none thing. When you have classes and functions that have `if` statements, you\nare telling your user that your function does more than one thing. Remember,\njust do one thing.\n\n",
+			"bad_code": "\n\n```javascript\nclass Airplane {\n  // ...\n  getCruisingAltitude() {\n    switch (this.type) {\n      case \"777\":\n        return this.getMaxAltitude() - this.getPassengerCount();\n      case \"Air Force One\":\n        return this.getMaxAltitude();\n      case \"Cessna\":\n        return this.getMaxAltitude() - this.getFuelExpenditure();\n    }\n  }\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nclass Airplane {\n  // ...\n}\n\nclass Boeing777 extends Airplane {\n  // ...\n  getCruisingAltitude() {\n    return this.getMaxAltitude() - this.getPassengerCount();\n  }\n}\n\nclass AirForceOne extends Airplane {\n  // ...\n  getCruisingAltitude() {\n    return this.getMaxAltitude();\n  }\n}\n\nclass Cessna extends Airplane {\n  // ...\n  getCruisingAltitude() {\n    return this.getMaxAltitude() - this.getFuelExpenditure();\n  }\n}\n```\n\n"
+		},
+		{
+			"id": "bb8988ba-aba8-48a8-bab9-8bbb888ba98a",
+			"language": "javascript",
+			"description": " Avoid type-checking (part 1)\n\nJavaScript is untyped, which means your functions can take any type of argument.\nSometimes you are bitten by this freedom and it becomes tempting to do\ntype-checking in your functions. There are many ways to avoid having to do this.\nThe first thing to consider is consistent APIs.\n\n",
+			"bad_code": "\n\n```javascript\nfunction travelToTexas(vehicle) {\n  if (vehicle instanceof Bicycle) {\n    vehicle.pedal(this.currentLocation, new Location(\"texas\"));\n  } else if (vehicle instanceof Car) {\n    vehicle.drive(this.currentLocation, new Location(\"texas\"));\n  }\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction travelToTexas(vehicle) {\n  vehicle.move(this.currentLocation, new Location(\"texas\"));\n}\n```\n\n"
+		},
+		{
+			"id": "babb9b9a-aa88-4a8b-8b9b-ab98aa8b9999",
+			"language": "javascript",
+			"description": " Avoid type-checking (part 2)\n\nIf you are working with basic primitive values like strings and integers,\nand you can't use polymorphism but you still feel the need to type-check,\nyou should consider using TypeScript. It is an excellent alternative to normal\nJavaScript, as it provides you with static typing on top of standard JavaScript\nsyntax. The problem with manually type-checking normal JavaScript is that\ndoing it well requires so much extra verbiage that the faux \"type-safety\" you get\ndoesn't make up for the lost readability. Keep your JavaScript clean, write\ngood tests, and have good code reviews. Otherwise, do all of that but with\nTypeScript (which, like I said, is a great alternative!).\n\n",
+			"bad_code": "\n\n```javascript\nfunction combine(val1, val2) {\n  if (\n    (typeof val1 === \"number\" && typeof val2 === \"number\") ||\n    (typeof val1 === \"string\" && typeof val2 === \"string\")\n  ) {\n    return val1 + val2;\n  }\n\n  throw new Error(\"Must be of type String or Number\");\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction combine(val1, val2) {\n  return val1 + val2;\n}\n```\n\n"
+		},
+		{
+			"id": "b9bb9a98-b89b-4a88-8bb8-a8b8b99898a8",
+			"language": "javascript",
+			"description": " Don't over-optimize\n\nModern browsers do a lot of optimization under-the-hood at runtime. A lot of\ntimes, if you are optimizing then you are just wasting your time. [There are good\nresources](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers)\nfor seeing where optimization is lacking. Target those in the meantime, until\nthey are fixed if they can be.\n\n",
+			"bad_code": "\n\n```javascript\n// On old browsers, each iteration with uncached `list.length` would be costly\n// because of `list.length` recomputation. In modern browsers, this is optimized.\nfor (let i = 0, len = list.length; i < len; i++) {\n  // ...\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nfor (let i = 0; i < list.length; i++) {\n  // ...\n}\n```\n\n"
+		},
+		{
+			"id": "89998aa8-aa88-4a88-8889-98b9b8b899b8",
+			"language": "javascript",
+			"description": " Remove dead code\n\nDead code is just as bad as duplicate code. There's no reason to keep it in\nyour codebase. If it's not being called, get rid of it! It will still be safe\nin your version history if you still need it.\n\n",
+			"bad_code": "\n\n```javascript\nfunction oldRequestModule(url) {\n  // ...\n}\n\nfunction newRequestModule(url) {\n  // ...\n}\n\nconst req = newRequestModule;\ninventoryTracker(\"apples\", req, \"www.inventory-awesome.io\");\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction newRequestModule(url) {\n  // ...\n}\n\nconst req = newRequestModule;\ninventoryTracker(\"apples\", req, \"www.inventory-awesome.io\");\n```\n\n"
+		},
+		{
+			"id": "a8bb9b89-9a88-499a-9ab9-b9bb9888aba9",
+			"language": "javascript",
+			"description": " Use getters and setters\n\nUsing getters and setters to access data on objects could be better than simply\nlooking for a property on an object. \"Why?\" you might ask. Well, here's an\nunorganized list of reasons why:\n\n- When you want to do more beyond getting an object property, you don't have\n  to look up and change every accessor in your codebase.\n- Makes adding validation simple when doing a `set`.\n- Encapsulates the internal representation.\n- Easy to add logging and error handling when getting and setting.\n- You can lazy load your object's properties, let's say getting it from a\n  server.\n\n",
+			"bad_code": "\n\n```javascript\nfunction makeBankAccount() {\n  // ...\n\n  return {\n    balance: 0\n    // ...\n  };\n}\n\nconst account = makeBankAccount();\naccount.balance = 100;\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction makeBankAccount() {\n  // this one is private\n  let balance = 0;\n\n  // a \"getter\", made public via the returned object below\n  function getBalance() {\n    return balance;\n  }\n\n  // a \"setter\", made public via the returned object below\n  function setBalance(amount) {\n    // ... validate before updating the balance\n    balance = amount;\n  }\n\n  return {\n    // ...\n    getBalance,\n    setBalance\n  };\n}\n\nconst account = makeBankAccount();\naccount.setBalance(100);\n```\n\n"
+		},
+		{
+			"id": "9aabab8a-ab88-4ba9-ab9b-9baaa8888ba8",
+			"language": "javascript",
+			"description": " Make objects have private members\n\nThis can be accomplished through closures (for ES5 and below).\n\n",
+			"bad_code": "\n\n```javascript\nconst Employee = function(name) {\n  this.name = name;\n};\n\nEmployee.prototype.getName = function getName() {\n  return this.name;\n};\n\nconst employee = new Employee(\"John Doe\");\nconsole.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe\ndelete employee.name;\nconsole.log(`Employee name: ${employee.getName()}`); // Employee name: undefined\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction makeEmployee(name) {\n  return {\n    getName() {\n      return name;\n    }\n  };\n}\n\nconst employee = makeEmployee(\"John Doe\");\nconsole.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe\ndelete employee.name;\nconsole.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe\n```\n\n"
+		},
+		{
+			"id": "99a989b9-bbba-4ba9-a8b8-8aab889a9baa",
+			"language": "javascript",
+			"description": " Prefer ES2015/ES6 classes over ES5 plain functions\n\nIt's very difficult to get readable class inheritance, construction, and method\ndefinitions for classical ES5 classes. If you need inheritance (and be aware\nthat you might not), then prefer ES2015/ES6 classes. However, prefer small functions over\nclasses until you find yourself needing larger and more complex objects.\n\n",
+			"bad_code": "\n\n```javascript\nconst Animal = function(age) {\n  if (!(this instanceof Animal)) {\n    throw new Error(\"Instantiate Animal with `new`\");\n  }\n\n  this.age = age;\n};\n\nAnimal.prototype.move = function move() {};\n\nconst Mammal = function(age, furColor) {\n  if (!(this instanceof Mammal)) {\n    throw new Error(\"Instantiate Mammal with `new`\");\n  }\n\n  Animal.call(this, age);\n  this.furColor = furColor;\n};\n\nMammal.prototype = Object.create(Animal.prototype);\nMammal.prototype.constructor = Mammal;\nMammal.prototype.liveBirth = function liveBirth() {};\n\nconst Human = function(age, furColor, languageSpoken) {\n  if (!(this instanceof Human)) {\n    throw new Error(\"Instantiate Human with `new`\");\n  }\n\n  Mammal.call(this, age, furColor);\n  this.languageSpoken = languageSpoken;\n};\n\nHuman.prototype = Object.create(Mammal.prototype);\nHuman.prototype.constructor = Human;\nHuman.prototype.speak = function speak() {};\n```\n\n",
+			"good_code": "\n\n```javascript\nclass Animal {\n  constructor(age) {\n    this.age = age;\n  }\n\n  move() {\n    /* ... */\n  }\n}\n\nclass Mammal extends Animal {\n  constructor(age, furColor) {\n    super(age);\n    this.furColor = furColor;\n  }\n\n  liveBirth() {\n    /* ... */\n  }\n}\n\nclass Human extends Mammal {\n  constructor(age, furColor, languageSpoken) {\n    super(age, furColor);\n    this.languageSpoken = languageSpoken;\n  }\n\n  speak() {\n    /* ... */\n  }\n}\n```\n\n"
+		},
+		{
+			"id": "88ab8aa9-a99a-4ab8-bb9a-bba88aabaab9",
+			"language": "javascript",
+			"description": " Use method chaining\n\nThis pattern is very useful in JavaScript and you see it in many libraries such\nas jQuery and Lodash. It allows your code to be expressive, and less verbose.\nFor that reason, I say, use method chaining and take a look at how clean your code\nwill be. In your class functions, simply return `this` at the end of every function,\nand you can chain further class methods onto it.\n\n",
+			"bad_code": "\n\n```javascript\nclass Car {\n  constructor(make, model, color) {\n    this.make = make;\n    this.model = model;\n    this.color = color;\n  }\n\n  setMake(make) {\n    this.make = make;\n  }\n\n  setModel(model) {\n    this.model = model;\n  }\n\n  setColor(color) {\n    this.color = color;\n  }\n\n  save() {\n    console.log(this.make, this.model, this.color);\n  }\n}\n\nconst car = new Car(\"Ford\", \"F-150\", \"red\");\ncar.setColor(\"pink\");\ncar.save();\n```\n\n",
+			"good_code": "\n\n```javascript\nclass Car {\n  constructor(make, model, color) {\n    this.make = make;\n    this.model = model;\n    this.color = color;\n  }\n\n  setMake(make) {\n    this.make = make;\n    // NOTE: Returning this for chaining\n    return this;\n  }\n\n  setModel(model) {\n    this.model = model;\n    // NOTE: Returning this for chaining\n    return this;\n  }\n\n  setColor(color) {\n    this.color = color;\n    // NOTE: Returning this for chaining\n    return this;\n  }\n\n  save() {\n    console.log(this.make, this.model, this.color);\n    // NOTE: Returning this for chaining\n    return this;\n  }\n}\n\nconst car = new Car(\"Ford\", \"F-150\", \"red\").setColor(\"pink\").save();\n```\n\n"
+		},
+		{
+			"id": "ababb88b-8abb-4899-89ab-b98ba8a98b9b",
+			"language": "javascript",
+			"description": " Prefer composition over inheritance\n\nAs stated famously in [_Design Patterns_](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four,\nyou should prefer composition over inheritance where you can. There are lots of\ngood reasons to use inheritance and lots of good reasons to use composition.\nThe main point for this maxim is that if your mind instinctively goes for\ninheritance, try to think if composition could model your problem better. In some\ncases it can.\n\nYou might be wondering then, \"when should I use inheritance?\" It\ndepends on your problem at hand, but this is a decent list of when inheritance\nmakes more sense than composition:\n\n1. Your inheritance represents an \"is-a\" relationship and not a \"has-a\"\n   relationship (Human->Animal vs. User->UserDetails).\n2. You can reuse code from the base classes (Humans can move like all animals).\n3. You want to make global changes to derived classes by changing a base class.\n   (Change the caloric expenditure of all animals when they move).\n\n",
+			"bad_code": "\n\n```javascript\nclass Employee {\n  constructor(name, email) {\n    this.name = name;\n    this.email = email;\n  }\n\n  // ...\n}\n\n// Bad because Employees \"have\" tax data. EmployeeTaxData is not a type of Employee\nclass EmployeeTaxData extends Employee {\n  constructor(ssn, salary) {\n    super();\n    this.ssn = ssn;\n    this.salary = salary;\n  }\n\n  // ...\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nclass EmployeeTaxData {\n  constructor(ssn, salary) {\n    this.ssn = ssn;\n    this.salary = salary;\n  }\n\n  // ...\n}\n\nclass Employee {\n  constructor(name, email) {\n    this.name = name;\n    this.email = email;\n  }\n\n  setTaxData(ssn, salary) {\n    this.taxData = new EmployeeTaxData(ssn, salary);\n  }\n  // ...\n}\n```\n\n"
+		},
+		{
+			"id": "b88bbaaa-aa99-4aa8-98aa-aa8bb8ba989b",
+			"language": "javascript",
+			"description": " Single Responsibility Principle (SRP)\n\nAs stated in Clean Code, \"There should never be more than one reason for a class\nto change\". It's tempting to jam-pack a class with a lot of functionality, like\nwhen you can only take one suitcase on your flight. The issue with this is\nthat your class won't be conceptually cohesive and it will give it many reasons\nto change. Minimizing the amount of times you need to change a class is important.\nIt's important because if too much functionality is in one class and you modify\na piece of it, it can be difficult to understand how that will affect other\ndependent modules in your codebase.\n\n",
+			"bad_code": "\n\n```javascript\nclass UserSettings {\n  constructor(user) {\n    this.user = user;\n  }\n\n  changeSettings(settings) {\n    if (this.verifyCredentials()) {\n      // ...\n    }\n  }\n\n  verifyCredentials() {\n    // ...\n  }\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nclass UserAuth {\n  constructor(user) {\n    this.user = user;\n  }\n\n  verifyCredentials() {\n    // ...\n  }\n}\n\nclass UserSettings {\n  constructor(user) {\n    this.user = user;\n    this.auth = new UserAuth(user);\n  }\n\n  changeSettings(settings) {\n    if (this.auth.verifyCredentials()) {\n      // ...\n    }\n  }\n}\n```\n\n"
+		},
+		{
+			"id": "aa9aab9a-aaaa-4b88-8999-8a8988a88bb9",
+			"language": "javascript",
+			"description": " Open/Closed Principle (OCP)\n\nAs stated by Bertrand Meyer, \"software entities (classes, modules, functions,\netc.) should be open for extension, but closed for modification.\" What does that\nmean though? This principle basically states that you should allow users to\nadd new functionalities without changing existing code.\n\n",
+			"bad_code": "\n\n```javascript\nclass AjaxAdapter extends Adapter {\n  constructor() {\n    super();\n    this.name = \"ajaxAdapter\";\n  }\n}\n\nclass NodeAdapter extends Adapter {\n  constructor() {\n    super();\n    this.name = \"nodeAdapter\";\n  }\n}\n\nclass HttpRequester {\n  constructor(adapter) {\n    this.adapter = adapter;\n  }\n\n  fetch(url) {\n    if (this.adapter.name === \"ajaxAdapter\") {\n      return makeAjaxCall(url).then(response => {\n        // transform response and return\n      });\n    } else if (this.adapter.name === \"nodeAdapter\") {\n      return makeHttpCall(url).then(response => {\n        // transform response and return\n      });\n    }\n  }\n}\n\nfunction makeAjaxCall(url) {\n  // request and return promise\n}\n\nfunction makeHttpCall(url) {\n  // request and return promise\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nclass AjaxAdapter extends Adapter {\n  constructor() {\n    super();\n    this.name = \"ajaxAdapter\";\n  }\n\n  request(url) {\n    // request and return promise\n  }\n}\n\nclass NodeAdapter extends Adapter {\n  constructor() {\n    super();\n    this.name = \"nodeAdapter\";\n  }\n\n  request(url) {\n    // request and return promise\n  }\n}\n\nclass HttpRequester {\n  constructor(adapter) {\n    this.adapter = adapter;\n  }\n\n  fetch(url) {\n    return this.adapter.request(url).then(response => {\n      // transform response and return\n    });\n  }\n}\n```\n\n"
+		},
+		{
+			"id": "aa8a9899-9ba8-4a88-9b99-bbbb8b89a99b",
+			"language": "javascript",
+			"description": " Liskov Substitution Principle (LSP)\n\nThis is a scary term for a very simple concept. It's formally defined as \"If S\nis a subtype of T, then objects of type T may be replaced with objects of type S\n(i.e., objects of type S may substitute objects of type T) without altering any\nof the desirable properties of that program (correctness, task performed,\netc.).\" That's an even scarier definition.\n\nThe best explanation for this is if you have a parent class and a child class,\nthen the base class and child class can be used interchangeably without getting\nincorrect results. This might still be confusing, so let's take a look at the\nclassic Square-Rectangle example. Mathematically, a square is a rectangle, but\nif you model it using the \"is-a\" relationship via inheritance, you quickly\nget into trouble.\n\n",
+			"bad_code": "\n\n```javascript\nclass Rectangle {\n  constructor() {\n    this.width = 0;\n    this.height = 0;\n  }\n\n  setColor(color) {\n    // ...\n  }\n\n  render(area) {\n    // ...\n  }\n\n  setWidth(width) {\n    this.width = width;\n  }\n\n  setHeight(height) {\n    this.height = height;\n  }\n\n  getArea() {\n    return this.width * this.height;\n  }\n}\n\nclass Square extends Rectangle {\n  setWidth(width) {\n    this.width = width;\n    this.height = width;\n  }\n\n  setHeight(height) {\n    this.width = height;\n    this.height = height;\n  }\n}\n\nfunction renderLargeRectangles(rectangles) {\n  rectangles.forEach(rectangle => {\n    rectangle.setWidth(4);\n    rectangle.setHeight(5);\n    const area = rectangle.getArea(); // BAD: Returns 25 for Square. Should be 20.\n    rectangle.render(area);\n  });\n}\n\nconst rectangles = [new Rectangle(), new Rectangle(), new Square()];\nrenderLargeRectangles(rectangles);\n```\n\n",
+			"good_code": "\n\n```javascript\nclass Shape {\n  setColor(color) {\n    // ...\n  }\n\n  render(area) {\n    // ...\n  }\n}\n\nclass Rectangle extends Shape {\n  constructor(width, height) {\n    super();\n    this.width = width;\n    this.height = height;\n  }\n\n  getArea() {\n    return this.width * this.height;\n  }\n}\n\nclass Square extends Shape {\n  constructor(length) {\n    super();\n    this.length = length;\n  }\n\n  getArea() {\n    return this.length * this.length;\n  }\n}\n\nfunction renderLargeShapes(shapes) {\n  shapes.forEach(shape => {\n    const area = shape.getArea();\n    shape.render(area);\n  });\n}\n\nconst shapes = [new Rectangle(4, 5), new Rectangle(4, 5), new Square(5)];\nrenderLargeShapes(shapes);\n```\n\n"
+		},
+		{
+			"id": "aa989aa8-8ab8-4ab9-bba8-98a8ba998a9a",
+			"language": "javascript",
+			"description": " Interface Segregation Principle (ISP)\n\nJavaScript doesn't have interfaces so this principle doesn't apply as strictly\nas others. However, it's important and relevant even with JavaScript's lack of\ntype system.\n\nISP states that \"Clients should not be forced to depend upon interfaces that\nthey do not use.\" Interfaces are implicit contracts in JavaScript because of\nduck typing.\n\nA good example to look at that demonstrates this principle in JavaScript is for\nclasses that require large settings objects. Not requiring clients to setup\nhuge amounts of options is beneficial, because most of the time they won't need\nall of the settings. Making them optional helps prevent having a\n\"fat interface\".\n\n",
+			"bad_code": "\n\n```javascript\nclass DOMTraverser {\n  constructor(settings) {\n    this.settings = settings;\n    this.setup();\n  }\n\n  setup() {\n    this.rootNode = this.settings.rootNode;\n    this.settings.animationModule.setup();\n  }\n\n  traverse() {\n    // ...\n  }\n}\n\nconst $ = new DOMTraverser({\n  rootNode: document.getElementsByTagName(\"body\"),\n  animationModule() {} // Most of the time, we won't need to animate when traversing.\n  // ...\n});\n```\n\n",
+			"good_code": "\n\n```javascript\nclass DOMTraverser {\n  constructor(settings) {\n    this.settings = settings;\n    this.options = settings.options;\n    this.setup();\n  }\n\n  setup() {\n    this.rootNode = this.settings.rootNode;\n    this.setupOptions();\n  }\n\n  setupOptions() {\n    if (this.options.animationModule) {\n      // ...\n    }\n  }\n\n  traverse() {\n    // ...\n  }\n}\n\nconst $ = new DOMTraverser({\n  rootNode: document.getElementsByTagName(\"body\"),\n  options: {\n    animationModule() {}\n  }\n});\n```\n\n"
+		},
+		{
+			"id": "a9aa899a-a8bb-49a8-9bab-99bbb98aab88",
+			"language": "javascript",
+			"description": " Dependency Inversion Principle (DIP)\n\nThis principle states two essential things:\n\n1. High-level modules should not depend on low-level modules. Both should\n   depend on abstractions.\n2. Abstractions should not depend upon details. Details should depend on\n   abstractions.\n\nThis can be hard to understand at first, but if you've worked with AngularJS,\nyou've seen an implementation of this principle in the form of Dependency\nInjection (DI). While they are not identical concepts, DIP keeps high-level\nmodules from knowing the details of its low-level modules and setting them up.\nIt can accomplish this through DI. A huge benefit of this is that it reduces\nthe coupling between modules. Coupling is a very bad development pattern because\nit makes your code hard to refactor.\n\nAs stated previously, JavaScript doesn't have interfaces so the abstractions\nthat are depended upon are implicit contracts. That is to say, the methods\nand properties that an object/class exposes to another object/class. In the\nexample below, the implicit contract is that any Request module for an\n`InventoryTracker` will have a `requestItems` method.\n\n",
+			"bad_code": "\n\n```javascript\nclass InventoryRequester {\n  constructor() {\n    this.REQ_METHODS = [\"HTTP\"];\n  }\n\n  requestItem(item) {\n    // ...\n  }\n}\n\nclass InventoryTracker {\n  constructor(items) {\n    this.items = items;\n\n    // BAD: We have created a dependency on a specific request implementation.\n    // We should just have requestItems depend on a request method: `request`\n    this.requester = new InventoryRequester();\n  }\n\n  requestItems() {\n    this.items.forEach(item => {\n      this.requester.requestItem(item);\n    });\n  }\n}\n\nconst inventoryTracker = new InventoryTracker([\"apples\", \"bananas\"]);\ninventoryTracker.requestItems();\n```\n\n",
+			"good_code": "\n\n```javascript\nclass InventoryTracker {\n  constructor(items, requester) {\n    this.items = items;\n    this.requester = requester;\n  }\n\n  requestItems() {\n    this.items.forEach(item => {\n      this.requester.requestItem(item);\n    });\n  }\n}\n\nclass InventoryRequesterV1 {\n  constructor() {\n    this.REQ_METHODS = [\"HTTP\"];\n  }\n\n  requestItem(item) {\n    // ...\n  }\n}\n\nclass InventoryRequesterV2 {\n  constructor() {\n    this.REQ_METHODS = [\"WS\"];\n  }\n\n  requestItem(item) {\n    // ...\n  }\n}\n\n// By constructing our dependencies externally and injecting them, we can easily\n// substitute our request module for a fancy new one that uses WebSockets.\nconst inventoryTracker = new InventoryTracker(\n  [\"apples\", \"bananas\"],\n  new InventoryRequesterV2()\n);\ninventoryTracker.requestItems();\n```\n\n"
+		},
+		{
+			"id": "ba989b9b-ab99-4b8b-bb9a-89a89a8a9bb9",
+			"language": "javascript",
+			"description": " Single concept per test\n\n",
+			"bad_code": "\n\n```javascript\nimport assert from \"assert\";\n\ndescribe(\"MomentJS\", () => {\n  it(\"handles date boundaries\", () => {\n    let date;\n\n    date = new MomentJS(\"1/1/2015\");\n    date.addDays(30);\n    assert.equal(\"1/31/2015\", date);\n\n    date = new MomentJS(\"2/1/2016\");\n    date.addDays(28);\n    assert.equal(\"02/29/2016\", date);\n\n    date = new MomentJS(\"2/1/2015\");\n    date.addDays(28);\n    assert.equal(\"03/01/2015\", date);\n  });\n});\n```\n\n",
+			"good_code": "\n\n```javascript\nimport assert from \"assert\";\n\ndescribe(\"MomentJS\", () => {\n  it(\"handles 30-day months\", () => {\n    const date = new MomentJS(\"1/1/2015\");\n    date.addDays(30);\n    assert.equal(\"1/31/2015\", date);\n  });\n\n  it(\"handles leap year\", () => {\n    const date = new MomentJS(\"2/1/2016\");\n    date.addDays(28);\n    assert.equal(\"02/29/2016\", date);\n  });\n\n  it(\"handles non-leap year\", () => {\n    const date = new MomentJS(\"2/1/2015\");\n    date.addDays(28);\n    assert.equal(\"03/01/2015\", date);\n  });\n});\n```\n\n"
+		},
+		{
+			"id": "88a8a8ba-b8aa-4a8b-abb8-8abba8bb9aba",
+			"language": "javascript",
+			"description": " Use Promises, not callbacks\n\nCallbacks aren't clean, and they cause excessive amounts of nesting. With ES2015/ES6,\nPromises are a built-in global type. Use them!\n\n",
+			"bad_code": "\n\n```javascript\nimport { get } from \"request\";\nimport { writeFile } from \"fs\";\n\nget(\n  \"https://en.wikipedia.org/wiki/Robert_Cecil_Martin\",\n  (requestErr, response, body) => {\n    if (requestErr) {\n      console.error(requestErr);\n    } else {\n      writeFile(\"article.html\", body, writeErr => {\n        if (writeErr) {\n          console.error(writeErr);\n        } else {\n          console.log(\"File written\");\n        }\n      });\n    }\n  }\n);\n```\n\n",
+			"good_code": "\n\n```javascript\nimport { get } from \"request-promise\";\nimport { writeFile } from \"fs-extra\";\n\nget(\"https://en.wikipedia.org/wiki/Robert_Cecil_Martin\")\n  .then(body => {\n    return writeFile(\"article.html\", body);\n  })\n  .then(() => {\n    console.log(\"File written\");\n  })\n  .catch(err => {\n    console.error(err);\n  });\n```\n\n"
+		},
+		{
+			"id": "8b8a9bba-8ab9-4999-ba88-8a8ab9a98b88",
+			"language": "javascript",
+			"description": " Async/Await are even cleaner than Promises\n\nPromises are a very clean alternative to callbacks, but ES2017/ES8 brings async and await\nwhich offer an even cleaner solution. All you need is a function that is prefixed\nin an `async` keyword, and then you can write your logic imperatively without\na `then` chain of functions. Use this if you can take advantage of ES2017/ES8 features\ntoday!\n\n",
+			"bad_code": "\n\n```javascript\nimport { get } from \"request-promise\";\nimport { writeFile } from \"fs-extra\";\n\nget(\"https://en.wikipedia.org/wiki/Robert_Cecil_Martin\")\n  .then(body => {\n    return writeFile(\"article.html\", body);\n  })\n  .then(() => {\n    console.log(\"File written\");\n  })\n  .catch(err => {\n    console.error(err);\n  });\n```\n\n",
+			"good_code": "\n\n```javascript\nimport { get } from \"request-promise\";\nimport { writeFile } from \"fs-extra\";\n\nasync function getCleanCodeArticle() {\n  try {\n    const body = await get(\n      \"https://en.wikipedia.org/wiki/Robert_Cecil_Martin\"\n    );\n    await writeFile(\"article.html\", body);\n    console.log(\"File written\");\n  } catch (err) {\n    console.error(err);\n  }\n}\n\ngetCleanCodeArticle()\n```\n\n"
+		},
+		{
+			"id": "bb8a8999-a99a-48ab-aaba-ba8ba8bbaaaa",
+			"language": "javascript",
+			"description": " Don't ignore caught errors\n\nDoing nothing with a caught error doesn't give you the ability to ever fix\nor react to said error. Logging the error to the console (`console.log`)\nisn't much better as often times it can get lost in a sea of things printed\nto the console. If you wrap any bit of code in a `try/catch` it means you\nthink an error may occur there and therefore you should have a plan,\nor create a code path, for when it occurs.\n\n",
+			"bad_code": "\n\n```javascript\ntry {\n  functionThatMightThrow();\n} catch (error) {\n  console.log(error);\n}\n```\n\n",
+			"good_code": "\n\n```javascript\ntry {\n  functionThatMightThrow();\n} catch (error) {\n  // One option (more noisy than console.log):\n  console.error(error);\n  // Another option:\n  notifyUserOfError(error);\n  // Another option:\n  reportErrorToService(error);\n  // OR do all three!\n}\n```\n\n### Don't ignore rejected promises\n\nFor the same reason you shouldn't ignore caught errors\nfrom `try/catch`.\n\n**Bad:**\n\n```javascript\ngetdata()\n  .then(data => {\n    functionThatMightThrow(data);\n  })\n  .catch(error => {\n    console.log(error);\n  });\n```\n\n**Good:**\n\n```javascript\ngetdata()\n  .then(data => {\n    functionThatMightThrow(data);\n  })\n  .catch(error => {\n    // One option (more noisy than console.log):\n    console.error(error);\n    // Another option:\n    notifyUserOfError(error);\n    // Another option:\n    reportErrorToService(error);\n    // OR do all three!\n  });\n```\n\n"
+		},
+		{
+			"id": "a98aaa88-a88a-4a99-889a-989988aa88a8",
+			"language": "javascript",
+			"description": " Use consistent capitalization\n\nJavaScript is untyped, so capitalization tells you a lot about your variables,\nfunctions, etc. These rules are subjective, so your team can choose whatever\nthey want. The point is, no matter what you all choose, just be consistent.\n\n",
+			"bad_code": "\n\n```javascript\nconst DAYS_IN_WEEK = 7;\nconst daysInMonth = 30;\n\nconst songs = [\"Back In Black\", \"Stairway to Heaven\", \"Hey Jude\"];\nconst Artists = [\"ACDC\", \"Led Zeppelin\", \"The Beatles\"];\n\nfunction eraseDatabase() {}\nfunction restore_database() {}\n\nclass animal {}\nclass Alpaca {}\n```\n\n",
+			"good_code": "\n\n```javascript\nconst DAYS_IN_WEEK = 7;\nconst DAYS_IN_MONTH = 30;\n\nconst SONGS = [\"Back In Black\", \"Stairway to Heaven\", \"Hey Jude\"];\nconst ARTISTS = [\"ACDC\", \"Led Zeppelin\", \"The Beatles\"];\n\nfunction eraseDatabase() {}\nfunction restoreDatabase() {}\n\nclass Animal {}\nclass Alpaca {}\n```\n\n"
+		},
+		{
+			"id": "b998ba89-b898-49ba-98b8-b8ba9bbba889",
+			"language": "javascript",
+			"description": " Function callers and callees should be close\n\nIf a function calls another, keep those functions vertically close in the source\nfile. Ideally, keep the caller right above the callee. We tend to read code from\ntop-to-bottom, like a newspaper. Because of this, make your code read that way.\n\n",
+			"bad_code": "\n\n```javascript\nclass PerformanceReview {\n  constructor(employee) {\n    this.employee = employee;\n  }\n\n  lookupPeers() {\n    return db.lookup(this.employee, \"peers\");\n  }\n\n  lookupManager() {\n    return db.lookup(this.employee, \"manager\");\n  }\n\n  getPeerReviews() {\n    const peers = this.lookupPeers();\n    // ...\n  }\n\n  perfReview() {\n    this.getPeerReviews();\n    this.getManagerReview();\n    this.getSelfReview();\n  }\n\n  getManagerReview() {\n    const manager = this.lookupManager();\n  }\n\n  getSelfReview() {\n    // ...\n  }\n}\n\nconst review = new PerformanceReview(employee);\nreview.perfReview();\n```\n\n",
+			"good_code": "\n\n```javascript\nclass PerformanceReview {\n  constructor(employee) {\n    this.employee = employee;\n  }\n\n  perfReview() {\n    this.getPeerReviews();\n    this.getManagerReview();\n    this.getSelfReview();\n  }\n\n  getPeerReviews() {\n    const peers = this.lookupPeers();\n    // ...\n  }\n\n  lookupPeers() {\n    return db.lookup(this.employee, \"peers\");\n  }\n\n  getManagerReview() {\n    const manager = this.lookupManager();\n  }\n\n  lookupManager() {\n    return db.lookup(this.employee, \"manager\");\n  }\n\n  getSelfReview() {\n    // ...\n  }\n}\n\nconst review = new PerformanceReview(employee);\nreview.perfReview();\n```\n\n"
+		},
+		{
+			"id": "8b98998b-abb9-4898-9aa8-89aa8ababaa9",
+			"language": "javascript",
+			"description": " Only comment things that have business logic complexity.\n\nComments are an apology, not a requirement. Good code _mostly_ documents itself.\n\n",
+			"bad_code": "\n\n```javascript\nfunction hashIt(data) {\n  // The hash\n  let hash = 0;\n\n  // Length of string\n  const length = data.length;\n\n  // Loop through every character in data\n  for (let i = 0; i < length; i++) {\n    // Get character code.\n    const char = data.charCodeAt(i);\n    // Make the hash\n    hash = (hash << 5) - hash + char;\n    // Convert to 32-bit integer\n    hash &= hash;\n  }\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction hashIt(data) {\n  let hash = 0;\n  const length = data.length;\n\n  for (let i = 0; i < length; i++) {\n    const char = data.charCodeAt(i);\n    hash = (hash << 5) - hash + char;\n\n    // Convert to 32-bit integer\n    hash &= hash;\n  }\n}\n```\n\n"
+		},
+		{
+			"id": "bb8ab9bb-b9b9-4aa8-a89b-98abbb99b999",
+			"language": "javascript",
+			"description": " Don't leave commented out code in your codebase\n\nVersion control exists for a reason. Leave old code in your history.\n\n",
+			"bad_code": "\n\n```javascript\ndoStuff();\n// doOtherStuff();\n// doSomeMoreStuff();\n// doSoMuchStuff();\n```\n\n",
+			"good_code": "\n\n```javascript\ndoStuff();\n```\n\n"
+		},
+		{
+			"id": "9b9b998b-aaa9-4b8a-8899-b8b88a98a8b8",
+			"language": "javascript",
+			"description": " Don't have journal comments\n\nRemember, use version control! There's no need for dead code, commented code,\nand especially journal comments. Use `git log` to get history!\n\n",
+			"bad_code": "\n\n```javascript\n/**\n * 2016-12-20: Removed monads, didn't understand them (RM)\n * 2016-10-01: Improved using special monads (JP)\n * 2016-02-03: Removed type-checking (LI)\n * 2015-03-14: Added combine with type-checking (JR)\n */\nfunction combine(a, b) {\n  return a + b;\n}\n```\n\n",
+			"good_code": "\n\n```javascript\nfunction combine(a, b) {\n  return a + b;\n}\n```\n\n"
+		},
+		{
+			"id": "9bb8a9a9-b8b9-488b-ab9b-9b889a9b98a9",
+			"language": "javascript",
+			"description": " Avoid positional markers\n\nThey usually just add noise. Let the functions and variable names along with the\nproper indentation and formatting give the visual structure to your code.\n\n",
+			"bad_code": "\n\n```javascript\n////////////////////////////////////////////////////////////////////////////////\n// Scope Model Instantiation\n////////////////////////////////////////////////////////////////////////////////\n$scope.model = {\n  menu: \"foo\",\n  nav: \"bar\"\n};\n\n////////////////////////////////////////////////////////////////////////////////\n// Action setup\n////////////////////////////////////////////////////////////////////////////////\nconst actions = function() {\n  // ...\n};\n```\n\n",
+			"good_code": "\n\n```javascript\n$scope.model = {\n  menu: \"foo\",\n  nav: \"bar\"\n};\n\nconst actions = function() {\n  // ...\n};\n```\n\n"
+		}
+	]
+}

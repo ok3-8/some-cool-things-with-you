@@ -1,0 +1,29 @@
+.answer .question {
+	width: 600px;
+	margin: 0 auto;
+	min-height: 320px;
+	border: 1px solid #e1e4e8;
+	padding: 32px;
+	overflow: auto;
+	font-size: small;
+}
+
+.answer .change {
+	text-align: center;
+}
+.answer {
+	padding: 25px;
+}
+.answer .change button {
+	width: 664px;
+	height: 50px;
+	margin-top: 10px;
+	padding: 6px 10px;
+	border-radius: 2px;
+	border: 1px solid #ccc;
+	font-size: 18px;
+}
+
+.answer .change button:hover {
+	border: 1px solid #999;
+}
