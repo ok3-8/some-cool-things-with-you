@@ -36,6 +36,7 @@
 
 .bad2good .compare .bad {
 	padding-right: 20px;
+	background-color: #ffeaef;
 }
 
 .bad2good .compare .good {
@@ -60,11 +61,11 @@
 }
 
 .bad2good .compare .arrow div small {
-	background-color: #f5f5f5;
+	background-color: #e0e0e0;
 	z-index: 2;
 	border-radius: 30px;
 	padding: 3px 20px;
-	color: #95aac9 !important;
+	color: #333 !important;
 	font-size: 0.875em;
 	cursor: pointer;
 }
@@ -73,7 +74,7 @@
 }
 
 .bad2good .compare .arrow div:after {
-	background-color: rgb(245, 245, 245);
+	background-color: #dedede;
 	content: '';
 	position: absolute;
 	height: 1px;
