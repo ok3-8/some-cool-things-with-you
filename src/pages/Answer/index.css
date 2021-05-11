@@ -4,8 +4,10 @@
 	min-height: 320px;
 	border: 1px solid #e1e4e8;
 	padding: 32px;
+	border-radius: 10px;
 	overflow: auto;
 	font-size: small;
+	background-color: #dff1f0;
 }
 
 .answer .change {
@@ -19,9 +21,11 @@
 	height: 50px;
 	margin-top: 10px;
 	padding: 6px 10px;
-	border-radius: 2px;
-	border: 1px solid #ccc;
 	font-size: 18px;
+	color: #333;
+	border-radius: 0 15px 15px 15px;
+	border: 1px solid #e0e0e0;
+	background-color: #f5f5f5;
 }
 
 .answer .change button:hover {

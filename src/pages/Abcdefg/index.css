@@ -1,0 +1,149 @@
+.is-animate.style4 > div {
+	animation-name: style4;
+}
+
+.is-animate {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-content: center;
+	height: 100px;
+	margin-top: 150px;
+}
+
+.is-animate > div {
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	animation-iteration-count: infinite;
+	margin: 1px;
+	color: #fff;
+	padding: 12px;
+	border-radius: 4px;
+	box-shadow: 1px 1px 9px -3px #000;
+	display: inline-block;
+}
+
+.is-animate > div:nth-child(1) {
+	animation-delay: 0s;
+	background-color: #fe4365;
+}
+.is-animate > div:nth-child(2) {
+	animation-delay: 0.1s;
+	background-color: #fc9d9a;
+}
+.is-animate > div:nth-child(3) {
+	animation-delay: 0.2s;
+	background-color: #f9cdad;
+}
+.is-animate > div:nth-child(4) {
+	animation-delay: 0.3s;
+	background-color: #c8c8a9;
+}
+.is-animate > div:nth-child(5) {
+	animation-delay: 0.4s;
+	background-color: #83af9b;
+}
+.is-animate > div:nth-child(6) {
+	animation-delay: 0.5s;
+	background-color: #ffc107;
+}
+.is-animate > div:nth-child(7) {
+	animation-delay: 0.6s;
+	background-color: #00bcd4;
+}
+
+@keyframes style1 {
+	from,
+	20%,
+	53%,
+	80%,
+	to {
+		animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+		transform: translate3d(0, 0.5, 0.1);
+	}
+	40%,
+	43% {
+		animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+		transform: translate3d(0px, -35px, 0);
+	}
+}
+
+@keyframes style2 {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+	65% {
+		transform: scale3d(0.95, 1.05, 1);
+	}
+	75% {
+		transform: scale3d(1.05, 0.95, 1);
+	}
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes style3 {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+	10%,
+	20% {
+		transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+	}
+	30%,
+	50%,
+	70%,
+	90% {
+		transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+	}
+	40%,
+	60%,
+	80% {
+		transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+	}
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes style4 {
+	from,
+	20%,
+	40%,
+	60%,
+	80%,
+	to {
+		animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
+	0% {
+		opacity: 0;
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+	20% {
+		transform: scale3d(1.1, 1.1, 1.1);
+	}
+	40% {
+		transform: scale3d(0.9, 0.9, 0.9);
+	}
+	60% {
+		opacity: 1;
+		transform: scale3d(1.03, 1.03, 1.03);
+	}
+	80% {
+		transform: scale3d(0.97, 0.97, 0.97);
+	}
+	to {
+		opacity: 1;
+		transform: scale3d(1, 1, 1);
+	}
+}

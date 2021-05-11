@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/from-bad-to-good-for-front-end-code/static/css/main.540c1cb1.chunk.css",
-    "main.js": "/from-bad-to-good-for-front-end-code/static/js/main.3eae9b1e.chunk.js",
-    "main.js.map": "/from-bad-to-good-for-front-end-code/static/js/main.3eae9b1e.chunk.js.map",
+    "main.css": "/from-bad-to-good-for-front-end-code/static/css/main.01cd8753.chunk.css",
+    "main.js": "/from-bad-to-good-for-front-end-code/static/js/main.ba45c542.chunk.js",
+    "main.js.map": "/from-bad-to-good-for-front-end-code/static/js/main.ba45c542.chunk.js.map",
     "runtime-main.js": "/from-bad-to-good-for-front-end-code/static/js/runtime-main.51de67a9.js",
     "runtime-main.js.map": "/from-bad-to-good-for-front-end-code/static/js/runtime-main.51de67a9.js.map",
-    "static/css/2.9de648ac.chunk.css": "/from-bad-to-good-for-front-end-code/static/css/2.9de648ac.chunk.css",
-    "static/js/2.bb8e5fc0.chunk.js": "/from-bad-to-good-for-front-end-code/static/js/2.bb8e5fc0.chunk.js",
-    "static/js/2.bb8e5fc0.chunk.js.map": "/from-bad-to-good-for-front-end-code/static/js/2.bb8e5fc0.chunk.js.map",
+    "static/css/2.fbce98fc.chunk.css": "/from-bad-to-good-for-front-end-code/static/css/2.fbce98fc.chunk.css",
+    "static/js/2.1068f47d.chunk.js": "/from-bad-to-good-for-front-end-code/static/js/2.1068f47d.chunk.js",
+    "static/js/2.1068f47d.chunk.js.map": "/from-bad-to-good-for-front-end-code/static/js/2.1068f47d.chunk.js.map",
     "static/js/3.a51596b0.chunk.js": "/from-bad-to-good-for-front-end-code/static/js/3.a51596b0.chunk.js",
     "static/js/3.a51596b0.chunk.js.map": "/from-bad-to-good-for-front-end-code/static/js/3.a51596b0.chunk.js.map",
     "index.html": "/from-bad-to-good-for-front-end-code/index.html",
-    "static/css/2.9de648ac.chunk.css.map": "/from-bad-to-good-for-front-end-code/static/css/2.9de648ac.chunk.css.map",
-    "static/css/main.540c1cb1.chunk.css.map": "/from-bad-to-good-for-front-end-code/static/css/main.540c1cb1.chunk.css.map",
-    "static/js/2.bb8e5fc0.chunk.js.LICENSE.txt": "/from-bad-to-good-for-front-end-code/static/js/2.bb8e5fc0.chunk.js.LICENSE.txt"
+    "static/css/2.fbce98fc.chunk.css.map": "/from-bad-to-good-for-front-end-code/static/css/2.fbce98fc.chunk.css.map",
+    "static/css/main.01cd8753.chunk.css.map": "/from-bad-to-good-for-front-end-code/static/css/main.01cd8753.chunk.css.map",
+    "static/js/2.1068f47d.chunk.js.LICENSE.txt": "/from-bad-to-good-for-front-end-code/static/js/2.1068f47d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.51de67a9.js",
-    "static/css/2.9de648ac.chunk.css",
-    "static/js/2.bb8e5fc0.chunk.js",
-    "static/css/main.540c1cb1.chunk.css",
-    "static/js/main.3eae9b1e.chunk.js"
+    "static/css/2.fbce98fc.chunk.css",
+    "static/js/2.1068f47d.chunk.js",
+    "static/css/main.01cd8753.chunk.css",
+    "static/js/main.ba45c542.chunk.js"
   ]
 }
