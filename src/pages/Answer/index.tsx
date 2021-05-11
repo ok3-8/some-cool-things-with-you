@@ -27,7 +27,7 @@ function getJsonSingle() {
 function Answer() {
   const [data, setDate] = React.useState(getJsonSingle());
   const goodCodeHtml = {
-    __html: marked(data.code.slice(4))
+    __html: marked( "## " + data.code.slice(data.code.indexOf(".") + 1))
   } 
   function handleChange(){
     setDate(getJsonSingle());
