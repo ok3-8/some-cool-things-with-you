@@ -1,6 +1,6 @@
 const fs = require("fs-extra");
 
-const file = "./rrr.md";
+const file = "./clean-code-javascript.md";
 
 const data = {
   ocean: []
@@ -29,7 +29,7 @@ fs.readFile(file, 'utf8', (err, str) => {
     console.error(e.message);
   }
 
-  outputFile("./new_json.json", JSON.stringify(data));
+  outputFile("./clean-code-javascript_json.json", JSON.stringify(data));
   
 });
 

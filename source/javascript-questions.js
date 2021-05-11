@@ -1,6 +1,6 @@
 const fs = require("fs-extra");
 
-const file = "./answer.md";
+const file = "./javascript-questions.md";
 
 const data = {
   ocean: []
@@ -29,7 +29,7 @@ fs.readFile(file, 'utf8', (err, str) => {
     console.error(e.message);
   }
 
-  outputFile("./answer_json.json", JSON.stringify(data));
+  outputFile("./javascript-questions_json.json", JSON.stringify(data));
   
 });
 
