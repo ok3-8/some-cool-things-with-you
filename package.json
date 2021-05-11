@@ -1,55 +1,56 @@
 {
-  "name": "from-bad-to-good-for-front-end-code",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@types/highlight.js": "^10.1.0",
-    "@types/marked": "^2.0.2",
-    "@types/react": "^17.0.5",
-    "@types/react-dom": "^17.0.3",
-    "@types/react-router-dom": "^5.1.7",
-    "animate.css": "^4.1.1",
-    "axios": "^0.21.1",
-    "cheerio": "^1.0.0-rc.6",
-    "cra-template-typescript": "1.1.2",
-    "download": "^8.0.0",
-    "fs-extra": "^9.1.0",
-    "highlight.js": "^10.7.2",
-    "iconv-lite": "^0.6.2",
-    "marked": "^2.0.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "request": "^2.88.2",
-    "superagent": "^6.1.0",
-    "typescript": "^4.2.4",
-    "web-vitals": "^1.1.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "spider": "node ./src/spider/index.js"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "from-bad-to-good-for-front-end-code",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@types/highlight.js": "^10.1.0",
+		"@types/marked": "^2.0.2",
+		"@types/react": "^17.0.5",
+		"@types/react-dom": "^17.0.3",
+		"@types/react-router-dom": "^5.1.7",
+		"animate.css": "^4.1.1",
+		"axios": "^0.21.1",
+		"cheerio": "^1.0.0-rc.6",
+		"cra-template-typescript": "1.1.2",
+		"download": "^8.0.0",
+		"fs-extra": "^9.1.0",
+		"highlight.js": "^10.7.2",
+		"iconv-lite": "^0.6.2",
+		"marked": "^2.0.3",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-router": "^5.2.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "4.0.3",
+		"request": "^2.88.2",
+		"superagent": "^6.1.0",
+		"typescript": "^4.2.4",
+		"web-vitals": "^1.1.1"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"spider": "node ./src/spider/index.js"
+	},
+	"homepage": "https://ok3-8.github.io/from-bad-to-good-for-front-end-code/",
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }
