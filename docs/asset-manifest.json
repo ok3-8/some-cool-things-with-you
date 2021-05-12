@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/from-bad-to-good-for-front-end-code/static/css/main.6b3ea7e0.chunk.css",
-    "main.js": "/from-bad-to-good-for-front-end-code/static/js/main.ac64332b.chunk.js",
-    "main.js.map": "/from-bad-to-good-for-front-end-code/static/js/main.ac64332b.chunk.js.map",
+    "main.css": "/from-bad-to-good-for-front-end-code/static/css/main.f6ff09cb.chunk.css",
+    "main.js": "/from-bad-to-good-for-front-end-code/static/js/main.78f61d25.chunk.js",
+    "main.js.map": "/from-bad-to-good-for-front-end-code/static/js/main.78f61d25.chunk.js.map",
     "runtime-main.js": "/from-bad-to-good-for-front-end-code/static/js/runtime-main.51de67a9.js",
     "runtime-main.js.map": "/from-bad-to-good-for-front-end-code/static/js/runtime-main.51de67a9.js.map",
     "static/css/2.fbce98fc.chunk.css": "/from-bad-to-good-for-front-end-code/static/css/2.fbce98fc.chunk.css",
@@ -12,14 +12,14 @@
     "static/js/3.a51596b0.chunk.js.map": "/from-bad-to-good-for-front-end-code/static/js/3.a51596b0.chunk.js.map",
     "index.html": "/from-bad-to-good-for-front-end-code/index.html",
     "static/css/2.fbce98fc.chunk.css.map": "/from-bad-to-good-for-front-end-code/static/css/2.fbce98fc.chunk.css.map",
-    "static/css/main.6b3ea7e0.chunk.css.map": "/from-bad-to-good-for-front-end-code/static/css/main.6b3ea7e0.chunk.css.map",
+    "static/css/main.f6ff09cb.chunk.css.map": "/from-bad-to-good-for-front-end-code/static/css/main.f6ff09cb.chunk.css.map",
     "static/js/2.1068f47d.chunk.js.LICENSE.txt": "/from-bad-to-good-for-front-end-code/static/js/2.1068f47d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.51de67a9.js",
     "static/css/2.fbce98fc.chunk.css",
     "static/js/2.1068f47d.chunk.js",
-    "static/css/main.6b3ea7e0.chunk.css",
-    "static/js/main.ac64332b.chunk.js"
+    "static/css/main.f6ff09cb.chunk.css",
+    "static/js/main.78f61d25.chunk.js"
   ]
 }

@@ -1,14 +1,27 @@
+.is-animate.style1 > div {
+	animation-name: style1;
+}
+.is-animate.style2 > div {
+	animation-name: style2;
+}
+.is-animate.style3 > div {
+	animation-name: style3;
+}
 .is-animate.style4 > div {
 	animation-name: style4;
+}
+
+.is-animate.style1 {
+	margin-top: 50px;
 }
 
 .is-animate {
 	display: flex;
 	flex-wrap: nowrap;
-	justify-content: center;
+	/* justify-content: center; */
 	align-content: center;
 	height: 100px;
-	margin-top: 150px;
+	margin-top: 20px;
 }
 
 .is-animate > div {

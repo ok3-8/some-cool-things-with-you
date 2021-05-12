@@ -64,7 +64,9 @@
 	background-color: #e9e9e9;
 	z-index: 2;
 	border-radius: 30px;
-	padding: 3px 20px;
+	padding: 0px 20px;
+	line-height: 24px;
+	height: 24px;
 	color: #333 !important;
 	font-size: 0.875em;
 	cursor: pointer;
