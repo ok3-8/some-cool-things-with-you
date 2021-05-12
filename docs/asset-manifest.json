@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/from-bad-to-good-for-front-end-code/static/css/main.324fccb3.chunk.css",
-    "main.js": "/from-bad-to-good-for-front-end-code/static/js/main.78f61d25.chunk.js",
-    "main.js.map": "/from-bad-to-good-for-front-end-code/static/js/main.78f61d25.chunk.js.map",
-    "runtime-main.js": "/from-bad-to-good-for-front-end-code/static/js/runtime-main.51de67a9.js",
-    "runtime-main.js.map": "/from-bad-to-good-for-front-end-code/static/js/runtime-main.51de67a9.js.map",
-    "static/css/2.fbce98fc.chunk.css": "/from-bad-to-good-for-front-end-code/static/css/2.fbce98fc.chunk.css",
-    "static/js/2.1068f47d.chunk.js": "/from-bad-to-good-for-front-end-code/static/js/2.1068f47d.chunk.js",
-    "static/js/2.1068f47d.chunk.js.map": "/from-bad-to-good-for-front-end-code/static/js/2.1068f47d.chunk.js.map",
-    "static/js/3.a51596b0.chunk.js": "/from-bad-to-good-for-front-end-code/static/js/3.a51596b0.chunk.js",
-    "static/js/3.a51596b0.chunk.js.map": "/from-bad-to-good-for-front-end-code/static/js/3.a51596b0.chunk.js.map",
-    "index.html": "/from-bad-to-good-for-front-end-code/index.html",
-    "static/css/2.fbce98fc.chunk.css.map": "/from-bad-to-good-for-front-end-code/static/css/2.fbce98fc.chunk.css.map",
-    "static/css/main.324fccb3.chunk.css.map": "/from-bad-to-good-for-front-end-code/static/css/main.324fccb3.chunk.css.map",
-    "static/js/2.1068f47d.chunk.js.LICENSE.txt": "/from-bad-to-good-for-front-end-code/static/js/2.1068f47d.chunk.js.LICENSE.txt"
+    "main.css": "/some-cool-things-with-you/static/css/main.c7890729.chunk.css",
+    "main.js": "/some-cool-things-with-you/static/js/main.8f2071bc.chunk.js",
+    "main.js.map": "/some-cool-things-with-you/static/js/main.8f2071bc.chunk.js.map",
+    "runtime-main.js": "/some-cool-things-with-you/static/js/runtime-main.1a8f3f1f.js",
+    "runtime-main.js.map": "/some-cool-things-with-you/static/js/runtime-main.1a8f3f1f.js.map",
+    "static/css/2.fbce98fc.chunk.css": "/some-cool-things-with-you/static/css/2.fbce98fc.chunk.css",
+    "static/js/2.a4d802ae.chunk.js": "/some-cool-things-with-you/static/js/2.a4d802ae.chunk.js",
+    "static/js/2.a4d802ae.chunk.js.map": "/some-cool-things-with-you/static/js/2.a4d802ae.chunk.js.map",
+    "static/js/3.65fa0e76.chunk.js": "/some-cool-things-with-you/static/js/3.65fa0e76.chunk.js",
+    "static/js/3.65fa0e76.chunk.js.map": "/some-cool-things-with-you/static/js/3.65fa0e76.chunk.js.map",
+    "index.html": "/some-cool-things-with-you/index.html",
+    "static/css/2.fbce98fc.chunk.css.map": "/some-cool-things-with-you/static/css/2.fbce98fc.chunk.css.map",
+    "static/css/main.c7890729.chunk.css.map": "/some-cool-things-with-you/static/css/main.c7890729.chunk.css.map",
+    "static/js/2.a4d802ae.chunk.js.LICENSE.txt": "/some-cool-things-with-you/static/js/2.a4d802ae.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.51de67a9.js",
+    "static/js/runtime-main.1a8f3f1f.js",
     "static/css/2.fbce98fc.chunk.css",
-    "static/js/2.1068f47d.chunk.js",
-    "static/css/main.324fccb3.chunk.css",
-    "static/js/main.78f61d25.chunk.js"
+    "static/js/2.a4d802ae.chunk.js",
+    "static/css/main.c7890729.chunk.css",
+    "static/js/main.8f2071bc.chunk.js"
   ]
 }

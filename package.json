@@ -1,5 +1,5 @@
 {
-	"name": "from-bad-to-good-for-front-end-code",
+	"name": "some-cool-things-with-you",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
@@ -34,7 +34,7 @@
 		"eject": "react-scripts eject",
 		"spider": "node ./src/spider/index.js"
 	},
-	"homepage": "https://ok3-8.github.io/from-bad-to-good-for-front-end-code/",
+	"homepage": "https://ok3-8.github.io/some-cool-things-with-you/",
 	"eslintConfig": {
 		"extends": [
 			"react-app",

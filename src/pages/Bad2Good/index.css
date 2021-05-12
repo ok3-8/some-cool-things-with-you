@@ -79,9 +79,9 @@
 	background-color: #dedede;
 	content: '';
 	position: absolute;
-	height: 1px;
+	height: 2px;
 	width: 100%;
-	top: 12px;
+	top: 11px;
 	z-index: 1;
 }
 
