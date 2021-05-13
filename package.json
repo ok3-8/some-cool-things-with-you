@@ -32,7 +32,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"spider": "node ./src/spider/index.js"
+		"spider": "node ./source/get-markdown.js"
 	},
 	"homepage": "https://ok3-8.github.io/some-cool-things-with-you/",
 	"eslintConfig": {

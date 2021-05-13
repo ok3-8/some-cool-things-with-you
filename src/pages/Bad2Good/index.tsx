@@ -4,7 +4,8 @@ import marked from 'marked';
 import hljs from "highlight.js";
 
 import { Context } from "../../App"
-import codeJson from "./../../code_source/new_json.json";
+import jsCodeJson from "./../../code_source/clean-code-javascript.json";
+import tsCodeJson from "./../../code_source/clean-code-typescript.json";
 import './index.css';
 
 marked.setOptions({
@@ -20,16 +21,34 @@ marked.setOptions({
   }
 }); 
 
+const scripts: any = {
+  js: jsCodeJson,
+  ts: tsCodeJson
+};
+let currentLang = "js";
 let currentIndex = 0;
+let codeJson: any = scripts[currentLang];
 
 function Bad2Good() {
 
   const { tag } = useContext(Context);
 
   function getJsonSingle() {
+
     const getIndex: any = {
-      random: () => Math.floor(Math.random() * codeJson.ocean.length),
-      sequence: () => (currentIndex + 1) > (codeJson.ocean.length - 1) ? 0 : (currentIndex + 1)
+      random: () => {
+        currentLang = Object.keys(scripts)[Math.floor(Math.random() * 2)];
+        codeJson = scripts[currentLang];
+        return Math.floor(Math.random() * codeJson.ocean.length);
+      },
+      sequence: () => {
+        const isOverflow = (currentIndex + 1) > (codeJson.ocean.length - 1);
+        if( isOverflow ) {
+          currentLang = currentLang === 'js' ? 'ts' : 'js';
+          codeJson = scripts[currentLang];
+        }
+        return  isOverflow ? 0 : (currentIndex + 1);
+      } 
     }
     currentIndex = getIndex[tag]();
     return codeJson.ocean[currentIndex];
@@ -38,7 +57,7 @@ function Bad2Good() {
   const [data, setDate] = React.useState(codeJson.ocean[0]);
 
   const info = {
-    __html: marked( "## " + data.description)
+    __html: marked( `## ${currentIndex + 1}.` + data.description)
   } 
   const badCodeHtml = {
     __html: marked(data.bad_code)

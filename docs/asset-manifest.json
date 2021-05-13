@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/some-cool-things-with-you/static/css/main.d7a75390.chunk.css",
-    "main.js": "/some-cool-things-with-you/static/js/main.db0ebfc9.chunk.js",
-    "main.js.map": "/some-cool-things-with-you/static/js/main.db0ebfc9.chunk.js.map",
-    "runtime-main.js": "/some-cool-things-with-you/static/js/runtime-main.1a8f3f1f.js",
-    "runtime-main.js.map": "/some-cool-things-with-you/static/js/runtime-main.1a8f3f1f.js.map",
+    "main.js": "/some-cool-things-with-you/static/js/main.e8d61936.chunk.js",
+    "main.js.map": "/some-cool-things-with-you/static/js/main.e8d61936.chunk.js.map",
+    "runtime-main.js": "/some-cool-things-with-you/static/js/runtime-main.79a600a9.js",
+    "runtime-main.js.map": "/some-cool-things-with-you/static/js/runtime-main.79a600a9.js.map",
     "static/css/2.fbce98fc.chunk.css": "/some-cool-things-with-you/static/css/2.fbce98fc.chunk.css",
-    "static/js/2.8a2feaec.chunk.js": "/some-cool-things-with-you/static/js/2.8a2feaec.chunk.js",
-    "static/js/2.8a2feaec.chunk.js.map": "/some-cool-things-with-you/static/js/2.8a2feaec.chunk.js.map",
-    "static/js/3.65fa0e76.chunk.js": "/some-cool-things-with-you/static/js/3.65fa0e76.chunk.js",
-    "static/js/3.65fa0e76.chunk.js.map": "/some-cool-things-with-you/static/js/3.65fa0e76.chunk.js.map",
+    "static/js/2.1bf7221c.chunk.js": "/some-cool-things-with-you/static/js/2.1bf7221c.chunk.js",
+    "static/js/2.1bf7221c.chunk.js.map": "/some-cool-things-with-you/static/js/2.1bf7221c.chunk.js.map",
+    "static/js/3.ec5ebd3b.chunk.js": "/some-cool-things-with-you/static/js/3.ec5ebd3b.chunk.js",
+    "static/js/3.ec5ebd3b.chunk.js.map": "/some-cool-things-with-you/static/js/3.ec5ebd3b.chunk.js.map",
     "index.html": "/some-cool-things-with-you/index.html",
     "static/css/2.fbce98fc.chunk.css.map": "/some-cool-things-with-you/static/css/2.fbce98fc.chunk.css.map",
     "static/css/main.d7a75390.chunk.css.map": "/some-cool-things-with-you/static/css/main.d7a75390.chunk.css.map",
-    "static/js/2.8a2feaec.chunk.js.LICENSE.txt": "/some-cool-things-with-you/static/js/2.8a2feaec.chunk.js.LICENSE.txt"
+    "static/js/2.1bf7221c.chunk.js.LICENSE.txt": "/some-cool-things-with-you/static/js/2.1bf7221c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1a8f3f1f.js",
+    "static/js/runtime-main.79a600a9.js",
     "static/css/2.fbce98fc.chunk.css",
-    "static/js/2.8a2feaec.chunk.js",
+    "static/js/2.1bf7221c.chunk.js",
     "static/css/main.d7a75390.chunk.css",
-    "static/js/main.db0ebfc9.chunk.js"
+    "static/js/main.e8d61936.chunk.js"
   ]
 }

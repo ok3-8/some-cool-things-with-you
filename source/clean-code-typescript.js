@@ -1,6 +1,6 @@
 const fs = require("fs-extra");
 
-const file = "./clean-code-javascript.md";
+const file = "./source/clean-code-typescript.md";
 
 const data = {
   ocean: []
@@ -29,7 +29,7 @@ fs.readFile(file, 'utf8', (err, str) => {
     console.error(e.message);
   }
 
-  outputFile("./clean-code-javascript.json", JSON.stringify(data));
+  outputFile("./clean-code-typescript.json", JSON.stringify(data));
   
 });
 
@@ -55,7 +55,7 @@ function createCodeInfo(str){
 
   const simple = {
     id: generateUUID(),
-    language: "javascript",
+    language: "typescript",
     description: str.substring(0, index.bad),
     bad_code: str.substring(index.bad + separator.bad.length, index.good),
     good_code: str.substring(index.good + separator.good.length, str.length)
