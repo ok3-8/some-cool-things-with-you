@@ -19,4 +19,4 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 
 ## screenshot
 
-![](https://github.com/ok3-8/some-cool-things-with-you/raw/master/screenshot.png)
+![screenshot](https://github.com/ok3-8/some-cool-things-with-you/raw/main/screenshot.png)
