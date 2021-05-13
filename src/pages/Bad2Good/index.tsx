@@ -68,10 +68,14 @@ function Bad2Good() {
 
   function handleChange(){
     setDate(getJsonSingle());
+    (window as any).scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   }
 
   return (
-    <div className="App bad2good">
+    <div className="App bad2good" id="Bad2Good">
         <div className="header">
           <div className="box" dangerouslySetInnerHTML={info}></div>
         </div>
