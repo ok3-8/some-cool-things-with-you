@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import marked from 'marked';
 import hljs from "highlight.js";
 
+import { Context } from "../../App"
 import codeJson from "./../../code_source/answer_json.json";
-
 import './index.css';
 
 marked.setOptions({
@@ -20,14 +20,26 @@ marked.setOptions({
   }
 }); 
 
-function getJsonSingle() {
-  return codeJson.ocean[Math.floor(Math.random() * codeJson.ocean.length)];
-}
+let currentIndex = 0;
 
 function Answer() {
-  const [data, setDate] = React.useState(getJsonSingle());
+
+  const { tag } = useContext(Context);
+
+  function getJsonSingle() {
+    const getIndex: any = {
+      random: () => Math.floor(Math.random() * codeJson.ocean.length),
+      sequence: () => (currentIndex + 1) > (codeJson.ocean.length - 1) ? 0 : (currentIndex + 1)
+    }
+    currentIndex = getIndex[tag]();
+    return codeJson.ocean[currentIndex];
+  }
+
+  const [data, setDate] = React.useState(codeJson.ocean[0]);
+  
   const goodCodeHtml = {
-    __html: marked( "## " + data.code.slice(data.code.indexOf(".") + 1))
+    // __html: marked( "## " + data.code.slice(data.code.indexOf(".") + 1))
+    __html: marked( data.code.slice(4))
   } 
   function handleChange(){
     setDate(getJsonSingle());
