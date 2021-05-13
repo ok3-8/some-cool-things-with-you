@@ -1,3 +1,7 @@
+.Abcdefg {
+	margin-left: 180px;
+}
+
 .is-animate.style1 > div {
 	animation-name: style1;
 }

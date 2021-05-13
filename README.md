@@ -20,3 +20,9 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 ## screenshot
 
 ![screenshot](https://github.com/ok3-8/some-cool-things-with-you/raw/main/screenshot.png)
+![screenshot](https://github.com/ok3-8/some-cool-things-with-you/raw/main/screenshot2.png)
+![screenshot](https://github.com/ok3-8/some-cool-things-with-you/raw/main/screenshot3.png)
+
+## License
+
+Released under the MIT License.

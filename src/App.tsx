@@ -39,10 +39,12 @@ function App() {
     dispatch({type: checked ? 'sequence' : 'random'});
   }
 
+  const { tag } = state;
+
   return (
     <Context.Provider 
       value={{
-        tag: state.tag
+        tag
       }}
     >
       <div>
@@ -65,7 +67,7 @@ function App() {
                 <label className="tgl-btn" data-tg-off="Random" data-tg-on="Sequence" htmlFor="cb5"></label>
               </div>
             </div>
-            <div className="setting"><img src={setting}></img></div>
+            <div className="setting" style={{animation: `${tag === "random" ? "rondomRotation" : "rotation"} 1.6s linear infinite`}}><img src={setting}></img></div>
           </div>   
         </div>
         <Router />

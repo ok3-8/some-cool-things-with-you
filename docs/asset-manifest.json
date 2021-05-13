@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/some-cool-things-with-you/static/css/main.d7a75390.chunk.css",
-    "main.js": "/some-cool-things-with-you/static/js/main.0cfe3936.chunk.js",
-    "main.js.map": "/some-cool-things-with-you/static/js/main.0cfe3936.chunk.js.map",
+    "main.css": "/some-cool-things-with-you/static/css/main.406a7cc3.chunk.css",
+    "main.js": "/some-cool-things-with-you/static/js/main.f1e305f0.chunk.js",
+    "main.js.map": "/some-cool-things-with-you/static/js/main.f1e305f0.chunk.js.map",
     "runtime-main.js": "/some-cool-things-with-you/static/js/runtime-main.79a600a9.js",
     "runtime-main.js.map": "/some-cool-things-with-you/static/js/runtime-main.79a600a9.js.map",
     "static/css/2.fbce98fc.chunk.css": "/some-cool-things-with-you/static/css/2.fbce98fc.chunk.css",
@@ -12,14 +12,14 @@
     "static/js/3.ec5ebd3b.chunk.js.map": "/some-cool-things-with-you/static/js/3.ec5ebd3b.chunk.js.map",
     "index.html": "/some-cool-things-with-you/index.html",
     "static/css/2.fbce98fc.chunk.css.map": "/some-cool-things-with-you/static/css/2.fbce98fc.chunk.css.map",
-    "static/css/main.d7a75390.chunk.css.map": "/some-cool-things-with-you/static/css/main.d7a75390.chunk.css.map",
+    "static/css/main.406a7cc3.chunk.css.map": "/some-cool-things-with-you/static/css/main.406a7cc3.chunk.css.map",
     "static/js/2.1bf7221c.chunk.js.LICENSE.txt": "/some-cool-things-with-you/static/js/2.1bf7221c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.79a600a9.js",
     "static/css/2.fbce98fc.chunk.css",
     "static/js/2.1bf7221c.chunk.js",
-    "static/css/main.d7a75390.chunk.css",
-    "static/js/main.0cfe3936.chunk.js"
+    "static/css/main.406a7cc3.chunk.css",
+    "static/js/main.f1e305f0.chunk.js"
   ]
 }

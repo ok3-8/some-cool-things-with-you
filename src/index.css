@@ -262,3 +262,48 @@ code {
 	-webkit-transform: rotateY(20deg);
 	transform: rotateY(20deg);
 }
+
+@keyframes rotation {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes rondomRotation {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	10% {
+		-webkit-transform: rotate(36deg);
+	}
+	20% {
+		-webkit-transform: rotate(100deg);
+	}
+	30% {
+		-webkit-transform: rotate(36deg);
+	}
+	40% {
+		-webkit-transform: rotate(0deg);
+	}
+	50% {
+		-webkit-transform: rotate(100deg);
+	}
+	60% {
+		-webkit-transform: rotate(300deg);
+	}
+	70% {
+		-webkit-transform: rotate(36deg);
+	}
+	80% {
+		-webkit-transform: rotate(200deg);
+	}
+	90% {
+		-webkit-transform: rotate(180deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
