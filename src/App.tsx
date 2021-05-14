@@ -64,7 +64,7 @@ function App() {
     >
       <div>
         <div className="nav">
-          <Link to='/'><div className="logo"><img src={avatar}></img></div></Link>
+          <Link to='/land-of-lory'><div className="logo"><img src={avatar}></img></div></Link>
           <Link to='/bad-to-good'>
             <CircularText text="Bad To Good" emoji="🥝" color="green"/>
           </Link>

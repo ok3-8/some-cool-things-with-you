@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import marked from 'marked';
 import hljs from "highlight.js";
+import dayjs from 'dayjs'
 
 import { Context } from "../../App"
 import jsCodeJson from "./../../code_source/clean-code-javascript.json";
@@ -34,7 +35,6 @@ function Bad2Good() {
   const { tag } = useContext(Context);
 
   function getJsonSingle() {
-
     const getIndex: any = {
       random: () => {
         currentLang = Object.keys(scripts)[Math.floor(Math.random() * 2)];
@@ -53,6 +53,20 @@ function Bad2Good() {
     currentIndex = getIndex[tag]();
     return codeJson.ocean[currentIndex];
   }
+
+  useEffect(()=>{
+    const getInfo: any[] = JSON.parse(window.localStorage.getItem("bad2good") || "[]");
+    const currentInfo = codeJson.ocean[currentIndex];
+    const o = {
+        id: currentInfo.language + currentInfo.id,
+        title: (currentIndex + 1) + "、"+ currentInfo.description.substring(0, currentInfo.description.indexOf("\n")),
+        language: currentInfo.language,
+        usage: "15:00",
+        time: dayjs().format('hh:mm:ss DD/MM/YYYY') 
+    }
+    getInfo.push(o);
+    window.localStorage.setItem("bad2good", JSON.stringify(getInfo))
+  }, [currentIndex])
 
   const [data, setDate] = React.useState(codeJson.ocean[0]);
   const [btnState, setBtnState] = React.useState({

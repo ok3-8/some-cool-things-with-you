@@ -12,6 +12,7 @@
 		"axios": "^0.21.1",
 		"cheerio": "^1.0.0-rc.6",
 		"cra-template-typescript": "1.1.2",
+		"dayjs": "^1.10.4",
 		"download": "^8.0.0",
 		"fs-extra": "^9.1.0",
 		"highlight.js": "^10.7.2",

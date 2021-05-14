@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import marked from 'marked';
 import hljs from "highlight.js";
+import dayjs from 'dayjs'
 
 import { Context } from "../../App"
 import codeJson from "./../../code_source/answer_json.json";
@@ -40,9 +41,23 @@ function Answer() {
     disabled: false
   });
 
+
+  useEffect(()=>{
+    const getInfo: any[] = JSON.parse(window.localStorage.getItem("bestquestions") || "[]");
+    const currentInfo = codeJson.ocean[currentIndex];
+    const o = {
+        id: currentInfo.id,
+        title: currentInfo.code.substring(0, currentInfo.code.indexOf("\n")),
+        language: currentInfo.language,
+        usage: "15:00",
+        time: dayjs().format('hh:mm:ss DD/MM/YYYY') 
+    }
+    getInfo.push(o);
+    window.localStorage.setItem("bestquestions", JSON.stringify(getInfo))
+  }, [currentIndex])
+
   const goodCodeHtml = {
-    // __html: marked( "## " + data.code.slice(data.code.indexOf(".") + 1))
-    __html: marked( data.code.slice(4))
+    __html: marked( "## " + data.code)
   } 
   
   function handleChange(){
