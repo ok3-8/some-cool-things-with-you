@@ -36,13 +36,26 @@ function Answer() {
   }
 
   const [data, setDate] = React.useState(codeJson.ocean[0]);
-  
+  const [btnState, setBtnState] = React.useState({
+    disabled: false
+  });
+
   const goodCodeHtml = {
     // __html: marked( "## " + data.code.slice(data.code.indexOf(".") + 1))
     __html: marked( data.code.slice(4))
   } 
+  
   function handleChange(){
-    setDate(getJsonSingle());
+    if(btnState.disabled) { return false; }
+    setBtnState({ disabled: true });
+    setTimeout(() => {
+      setDate(getJsonSingle());
+      (window as any).scrollTo({
+        top: 0,
+        behavior: "smooth"
+      }); 
+      setBtnState({ disabled: false });
+    }, 800); 
   }
     return (
       <div className="App answer">
@@ -50,7 +63,10 @@ function Answer() {
           <div dangerouslySetInnerHTML={goodCodeHtml}></div>
         </div>
         <div className="change">
-          <button onClick={handleChange}>Keep on</button>
+          <button onClick={handleChange} className={`progress-button ${btnState.disabled && 'active'}`}>
+            <span className="content">Keep on</span>
+            <span className="progress"></span>
+					</button>
         </div>
       </div>
     );

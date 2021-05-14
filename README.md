@@ -5,6 +5,8 @@
   <img src="https://img.shields.io/badge/license-MIT-ccc.svg?style=flat-square&logo=reliance-industries-limited" />
 </p>
 
+> Simply click on them to change or expand it. It's so fun, good luck! ❤️
+
 ---
 
 # Some cool things with you
@@ -17,11 +19,15 @@ One more thing: knowing these won't immediately make you a better software devel
 
 From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo regularly with new questions. I added the answers in the **collapsed sections** below the questions, simply click on them to expand it. It's just for fun, good luck! :heart:
 
-## screenshot
+-   [page::《clean code by javascript or typescript》](https://ok3-8.github.io/some-cool-things-with-you/#/bad-to-good)
+-   [page::《best javascript questions》](https://ok3-8.github.io/some-cool-things-with-you/#/best-answer)
+-   [page::《some css3 animation》](https://ok3-8.github.io/some-cool-things-with-you/#/abcdefg)
 
-![screenshot](https://github.com/ok3-8/some-cool-things-with-you/raw/main/screenshot.png)
-![screenshot](https://github.com/ok3-8/some-cool-things-with-you/raw/main/screenshot2.png)
-![screenshot](https://github.com/ok3-8/some-cool-things-with-you/raw/main/screenshot3.png)
+## Screenshot
+
+![screenshot by bad to good page](https://github.com/ok3-8/some-cool-things-with-you/raw/main/screenshot.png)
+![screenshot by best question page](https://github.com/ok3-8/some-cool-things-with-you/raw/main/screenshot2.png)
+![screenshot by animation page](https://github.com/ok3-8/some-cool-things-with-you/raw/main/screenshot3.png)
 
 ## License
 

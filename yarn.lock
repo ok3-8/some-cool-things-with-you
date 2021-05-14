@@ -8154,6 +8154,11 @@ os-browserify@^0.3.0:
   resolved "https://registry.yarnpkg.com/os-browserify/-/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"
   integrity sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=
 
+ouibounce@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.nlark.com/ouibounce/download/ouibounce-0.0.12.tgz#3266f02364f7bd02873423b7b5df7850ca5743cf"
+  integrity sha1-MmbwI2T3vQKHNCO3td94UMpXQ88=
+
 p-cancelable@^0.4.0:
   version "0.4.1"
   resolved "https://registry.npm.taobao.org/p-cancelable/download/p-cancelable-0.4.1.tgz?cache=0&sync_timestamp=1615361348368&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fp-cancelable%2Fdownload%2Fp-cancelable-0.4.1.tgz#35f363d67d52081c8d9585e37bcceb7e0bbcb2a0"

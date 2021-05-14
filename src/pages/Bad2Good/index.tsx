@@ -55,6 +55,9 @@ function Bad2Good() {
   }
 
   const [data, setDate] = React.useState(codeJson.ocean[0]);
+  const [btnState, setBtnState] = React.useState({
+    disabled: false
+  });
 
   const info = {
     __html: marked( `## ${currentIndex + 1}.` + data.description)
@@ -67,11 +70,16 @@ function Bad2Good() {
   } 
 
   function handleChange(){
-    setDate(getJsonSingle());
-    (window as any).scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    if(btnState.disabled) { return false; }
+    setBtnState({ disabled: true });
+    setTimeout(() => {
+      setDate(getJsonSingle());
+      (window as any).scrollTo({
+        top: 0,
+        behavior: "smooth"
+      }); 
+      setBtnState({ disabled: false });
+    }, 800); 
   }
 
   return (
@@ -100,7 +108,10 @@ function Bad2Good() {
           Be who you want and you will be great.
         </p>
         <div className="change">
-            <button onClick={handleChange}>Keep on</button>
+          <button onClick={handleChange} className={`progress-button ${btnState.disabled && 'active'}`}>
+            <span className="content">Keep on</span>
+            <span className="progress"></span>
+					</button>
         </div>
     </div>
   );

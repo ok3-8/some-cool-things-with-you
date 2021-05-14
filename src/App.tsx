@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext, useEffect, useReducer } from 'react';
 import {Link} from 'react-router-dom';
 import Router from './Router';
 
@@ -33,6 +33,21 @@ function CircularText ({text, emoji, color}: any) {
 function App() {
 
   const [state, dispatch] = useReducer(reducer, {tag: "random"});
+
+  // useEffect(() => {
+  //   window.onbeforeunload = function() {
+  //     console.log('beforeunload')
+  //     return 1;
+  //   };
+  //   window.onblur = function () {
+  //     console.log("失去焦点");
+  //   }
+  //   document.addEventListener('visibilitychange',function(){
+  //     if(document.visibilityState==='hidden'){
+  //       console.log("选项卡切换");
+  //     }
+  //   });
+  // }, []);
 
   function handleChange(e: any) {
     const { checked } = e.target;
@@ -71,6 +86,7 @@ function App() {
           </div>   
         </div>
         <Router />
+        <div className="ns-box ns-growl ns-effect-genie ns-type-notice ns-show"><div className="ns-box-inner"><p>Your preferences have been saved successfully. See all your settings in your <a href="#">profile overview</a>.</p></div><span className="ns-close"></span></div>
       </div>
     </Context.Provider>
   );
