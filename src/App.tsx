@@ -68,8 +68,8 @@ function App() {
           <Link to='/bad-to-good'>
             <CircularText text="Bad To Good" emoji="🥝" color="green"/>
           </Link>
-          <Link to='/best-answer'>
-            <CircularText text="Best Answer" emoji="🍋" color="cyan"/>
+          <Link to='/best-questions'>
+            <CircularText text="Best Question" emoji="🍋" color="cyan"/>
           </Link>          
           <Link to='/abcdefg'>
             <CircularText text="A B C D E F G" emoji="🍓" color="timber"/>

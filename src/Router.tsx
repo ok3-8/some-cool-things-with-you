@@ -11,7 +11,7 @@ const Router = () => (
         <Route exact path='/' component={Bad2Good}/>
         <Route path='/land-of-lory' component={Land4glory}/>
         <Route path='/bad-to-good' component={Bad2Good}/>
-        <Route path='/best-answer' component={Answer}/>
+        <Route path='/best-questions' component={Answer}/>
         <Route path='/abcdefg' component={Abcdefg}/>
     </Switch>
 )

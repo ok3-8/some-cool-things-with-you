@@ -36,24 +36,26 @@ function Answer() {
     return codeJson.ocean[currentIndex];
   }
 
-  const [data, setDate] = React.useState(codeJson.ocean[0]);
+  const [data, setDate] = React.useState(codeJson.ocean[currentIndex]);
   const [btnState, setBtnState] = React.useState({
     disabled: false
   });
 
-
-  useEffect(()=>{
+  useEffect(() => {
     const getInfo: any[] = JSON.parse(window.localStorage.getItem("bestquestions") || "[]");
     const currentInfo = codeJson.ocean[currentIndex];
-    const o = {
-        id: currentInfo.id,
-        title: currentInfo.code.substring(0, currentInfo.code.indexOf("\n")),
-        language: currentInfo.language,
-        usage: "15:00",
-        time: dayjs().format('hh:mm:ss DD/MM/YYYY') 
+    if(!getInfo.some((item: any) => item.id == currentInfo.id)) {
+      const o = {
+          id: currentInfo.id,
+          title: currentInfo.code.substring(0, currentInfo.code.indexOf("\n")),
+          language: currentInfo.language,
+          usage: "15:00",
+          times: 0,
+          time: dayjs().format('hh:mm:ss DD/MM/YYYY') 
+      }
+      getInfo.push(o);
+      window.localStorage.setItem("bestquestions", JSON.stringify(getInfo));
     }
-    getInfo.push(o);
-    window.localStorage.setItem("bestquestions", JSON.stringify(getInfo))
   }, [currentIndex])
 
   const goodCodeHtml = {

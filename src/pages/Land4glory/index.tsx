@@ -32,7 +32,7 @@ function Land4glory() {
         <h2>Land of lory</h2>
         <table className="gridtable">
           <tr>
-              <th>Bad to good</th><th>best questions</th>
+              <th>Bad to good</th><th>Best questions</th>
           </tr>
           {/* <tr>
               <td>

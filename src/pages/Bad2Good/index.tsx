@@ -54,21 +54,24 @@ function Bad2Good() {
     return codeJson.ocean[currentIndex];
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     const getInfo: any[] = JSON.parse(window.localStorage.getItem("bad2good") || "[]");
     const currentInfo = codeJson.ocean[currentIndex];
-    const o = {
-        id: currentInfo.language + currentInfo.id,
-        title: (currentIndex + 1) + "、"+ currentInfo.description.substring(0, currentInfo.description.indexOf("\n")),
-        language: currentInfo.language,
-        usage: "15:00",
-        time: dayjs().format('hh:mm:ss DD/MM/YYYY') 
+    if(!getInfo.some((item: any) => item.id == currentInfo.id)) {
+      const o = {
+          id: currentInfo.language + currentInfo.id,
+          title: (currentIndex + 1) + "、"+ currentInfo.description.substring(0, currentInfo.description.indexOf("\n")),
+          language: currentInfo.language,
+          usage: "15:00",
+          times: 0,
+          time: dayjs().format('hh:mm:ss DD/MM/YYYY') 
+      }
+      getInfo.push(o);
+      window.localStorage.setItem("bad2good", JSON.stringify(getInfo))      
     }
-    getInfo.push(o);
-    window.localStorage.setItem("bad2good", JSON.stringify(getInfo))
   }, [currentIndex])
 
-  const [data, setDate] = React.useState(codeJson.ocean[0]);
+  const [data, setDate] = React.useState(codeJson.ocean[currentIndex]);
   const [btnState, setBtnState] = React.useState({
     disabled: false
   });
