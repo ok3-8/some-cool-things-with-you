@@ -44,7 +44,7 @@ function Answer() {
   useEffect(() => {
     const getInfo: any[] = JSON.parse(window.localStorage.getItem("bestquestions") || "[]");
     const currentInfo = codeJson.ocean[currentIndex];
-    if(!getInfo.some((item: any) => item.id == currentInfo.id)) {
+    if(!getInfo.some((item: any) => item.id === currentInfo.id)) {
       const o = {
           id: currentInfo.id,
           title: currentInfo.code.substring(0, currentInfo.code.indexOf("\n")),

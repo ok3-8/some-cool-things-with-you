@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useReducer } from 'react';
-import {Link} from 'react-router-dom';
+import React, { useReducer } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Router from './Router';
 
 import avatar from './assets/avatar5.jpg';
@@ -49,6 +49,9 @@ function App() {
   //   });
   // }, []);
 
+  const { pathname } = useLocation();
+  const hasSetting = ['/land-of-lory', '/abcdefg'].includes(pathname);
+
   function handleChange(e: any) {
     const { checked } = e.target;
     dispatch({type: checked ? 'sequence' : 'random'});
@@ -64,7 +67,7 @@ function App() {
     >
       <div>
         <div className="nav">
-          <Link to='/land-of-lory'><div className="logo"><img src={avatar}></img></div></Link>
+          <Link to='/land-of-lory'><div className="logo"><img alt="avatar" src={avatar}></img></div></Link>
           <Link to='/bad-to-good'>
             <CircularText text="Bad To Good" emoji="🥝" color="green"/>
           </Link>
@@ -74,7 +77,7 @@ function App() {
           <Link to='/abcdefg'>
             <CircularText text="A B C D E F G" emoji="🍓" color="timber"/>
           </Link>  
-          <div className="cycle">
+          <div className="cycle" style={{display: `${hasSetting ? 'none': 'block'}`}}>
             <div className="option">
               <div className="tg-list-item">
                 <h4>in sequence or by random</h4>
@@ -82,7 +85,7 @@ function App() {
                 <label className="tgl-btn" data-tg-off="Random" data-tg-on="Sequence" htmlFor="cb5"></label>
               </div>
             </div>
-            <div className="setting" style={{animation: `${tag === "random" ? "rondomRotation" : "rotation"} 1.6s linear infinite`}}><img src={setting}></img></div>
+            <div className="setting" style={{animation: `${tag === "random" ? "rondomRotation" : "rotation"} 1.6s linear infinite`}}><img alt="setting" src={setting}></img></div>
           </div>   
         </div>
         <Router />

@@ -57,7 +57,7 @@ function Bad2Good() {
   useEffect(() => {
     const getInfo: any[] = JSON.parse(window.localStorage.getItem("bad2good") || "[]");
     const currentInfo = codeJson.ocean[currentIndex];
-    if(!getInfo.some((item: any) => item.id == currentInfo.id)) {
+    if(!getInfo.some((item: any) => item.id === currentInfo.id)) {
       const o = {
           id: currentInfo.language + currentInfo.id,
           title: (currentIndex + 1) + "、"+ currentInfo.description.substring(0, currentInfo.description.indexOf("\n")),

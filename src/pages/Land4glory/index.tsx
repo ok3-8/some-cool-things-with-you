@@ -7,7 +7,7 @@ function Land4glory() {
    const [info, setInfo] = React.useState<any[]>([]);
    const [questions, setQuestions] = React.useState<any[]>([]);
 
-   React.useEffect(()=>{
+   useEffect(()=>{
     const getInfo: any[] = JSON.parse(window.localStorage.getItem("bad2good") || "[]");
     const getQuestions: any[] = JSON.parse(window.localStorage.getItem("bestquestions") || "[]");
      setInfo(getInfo); setQuestions(getQuestions); 
@@ -31,38 +31,32 @@ function Land4glory() {
 
         <h2>Land of lory</h2>
         <table className="gridtable">
-          <tr>
+          <thead>
+            <tr>
               <th>Bad to good</th><th>Best questions</th>
-          </tr>
-          {/* <tr>
-              <td>
-                1
-              </td>
-              <td>2</td>
-          </tr> */}
-          <tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
               <td>
                 {
-                  info.map(o => {
-                    return (<><DetailInfo {...o}/><hr /></>)
+                  info.map((o, idx) => {
+                    return (<><DetailInfo key={idx} {...o}/><hr /></>)
                   })
                 }
                 {
-                  info.length == 0 && "Simply click on them to change or expand it. It's so fun, good luck! ❤️"
+                  info.length === 0 && "Simply click on them to change or expand it. It's so fun, good luck! ❤️"
                 }
               </td>
               <td>{
-                  questions.map(o => {
-                    return (<><DetailInfo {...o}/><hr /></>)
+                  questions.map((o, idx) => {
+                    return (<><DetailInfo key={idx} {...o}/><hr /></>)
                   })
                 }</td>
           </tr>
+          </tbody>
+          
         </table>
-
-        
-      {/* // clean code js or ts {id: js/ts + xxx, title: xxx, language: xxx, time: xxx }  */}
-      {/* // best questions {id: xxx, title: xxx, time: xxx} */}
-
 
       </div>
     );
