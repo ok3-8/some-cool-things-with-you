@@ -7,7 +7,7 @@ function Land4glory() {
    const [info, setInfo] = React.useState<any[]>([]);
    const [questions, setQuestions] = React.useState<any[]>([]);
 
-   useEffect(()=>{
+   useEffect(() => {
     const getInfo: any[] = JSON.parse(window.localStorage.getItem("bad2good") || "[]");
     const getQuestions: any[] = JSON.parse(window.localStorage.getItem("bestquestions") || "[]");
      setInfo(getInfo); setQuestions(getQuestions); 
@@ -15,20 +15,20 @@ function Land4glory() {
 
    function DetailInfo({title, usage, language, time}: any) {
       return (
-        <div className="list-info">
-          <p>{title}</p> 
-          <div>
-              <span className="tag">tag: {language}</span> 
-              {/* <span className="usage">usage time: {usage}</span>  */}
-              <span className="when">time: {time}</span>                     
+        <>
+          <div className="list-info">
+            <p>{title}</p> 
+            <span className="tag">tag: {language}</span> 
+            {/* <span className="usage">usage time: {usage}</span>  */}
+            <span className="when">time: {time}</span>                     
           </div>
-        </div>
+          <hr />
+        </>
       )
     }
 
     return (
       <div className="App Land4glory">
-
         <h2>Land of lory</h2>
         <table className="gridtable">
           <thead>
@@ -39,20 +39,12 @@ function Land4glory() {
           <tbody>
             <tr>
               <td>
-                {
-                  info.map((o, idx) => {
-                    return (<><DetailInfo key={idx} {...o}/><hr /></>)
-                  })
-                }
-                {
-                  info.length === 0 && "Simply click on them to change or expand it. It's so fun, good luck! ❤️"
-                }
+                {info.map((o, idx) => <DetailInfo key={idx} {...o}/>)}
+                {info.length === 0 && "Simply click on them to change or expand it. It's so fun, good luck! ❤️"}
               </td>
-              <td>{
-                  questions.map((o, idx) => {
-                    return (<><DetailInfo key={idx} {...o}/><hr /></>)
-                  })
-                }</td>
+              <td>
+                {questions.map((o, idx) => <DetailInfo key={idx} {...o}/>)}
+              </td>
           </tr>
           </tbody>
           

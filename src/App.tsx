@@ -1,5 +1,7 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { Link, useLocation } from "react-router-dom";
+import ouibounce from "ouibounce";
+
 import Router from "./Router";
 
 import avatar from "./assets/avatar5.jpg";
@@ -49,13 +51,19 @@ function App() {
   //     }
   //   });
   // }, []);
-
+  useEffect(()=>{
+    ouibounce(document.getElementById('ouibounce-modal'), { cookieExpire: 1 });
+  }, []);
   const { pathname } = useLocation();
   const hasSetting = ["/land-of-lory", "/abcdefg"].includes(pathname);
 
   function handleChange(e: any) {
     const { checked } = e.target;
     dispatch({ type: checked ? "sequence" : "random" });
+  }
+
+  function handleClick() {
+    return document.getElementById('ouibounce-modal')!.style.display = "none";
   }
 
   const { tag } = state;
@@ -116,7 +124,7 @@ function App() {
           </div>
         </div>
         <Router />
-        <div className="ns-box ns-growl ns-effect-genie ns-type-notice ns-show">
+        <div id="ouibounce-modal" className="ns-box ns-growl ns-effect-genie ns-type-notice ns-show">
           <div className="ns-box-inner">
             <p>
               Your preferences have been saved successfully. See all your
@@ -125,7 +133,7 @@ function App() {
               <a href="#">profile overview</a>.
             </p>
           </div>
-          <span className="ns-close"></span>
+          <span className="ns-close" onClick={handleClick}></span>
         </div>
       </div>
     </Context.Provider>
