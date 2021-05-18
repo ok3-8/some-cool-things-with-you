@@ -9,17 +9,28 @@
 		"@types/react": "^17.0.5",
 		"@types/react-dom": "^17.0.3",
 		"@types/react-router-dom": "^5.1.7",
+		"@typescript-eslint/eslint-plugin": "^4.24.0",
+		"@typescript-eslint/parser": "^4.24.0",
 		"animate.css": "^4.1.1",
 		"axios": "^0.21.1",
+		"babel-eslint": "^10.1.0",
 		"cheerio": "^1.0.0-rc.6",
 		"cra-template-typescript": "1.1.2",
 		"dayjs": "^1.10.4",
 		"download": "^8.0.0",
+		"eslint": "^7.26.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-config-react-app": "^6.0.0",
+		"eslint-plugin-prettier": "^3.4.0",
+		"eslint-plugin-react": "^7.23.2",
 		"fs-extra": "^9.1.0",
 		"highlight.js": "^10.7.2",
+		"husky": "^6.0.0",
 		"iconv-lite": "^0.6.2",
+		"lint-staged": "^11.0.0",
 		"marked": "^2.0.3",
 		"ouibounce": "^0.0.12",
+		"prettier": "^2.3.0",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-router": "^5.2.0",
@@ -35,7 +46,19 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
+		"prettier": "prettier --write ./src",
 		"spider": "node ./source/get-markdown.js"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{ts,tsx}": [
+			"yarn run prettier",
+			"git add"
+		]
 	},
 	"homepage": "https://ok3-8.github.io/some-cool-things-with-you/",
 	"eslintConfig": {

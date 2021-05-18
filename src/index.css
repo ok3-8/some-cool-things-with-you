@@ -1,13 +1,15 @@
 body {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-		'Droid Sans', 'Helvetica Neue', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
 }
 
 .App {
@@ -172,7 +174,7 @@ code {
 .tgl + .tgl-btn:before {
 	position: relative;
 	display: block;
-	content: '';
+	content: "";
 	width: 50%;
 	/* height: 100%; */
 }
@@ -197,7 +199,7 @@ code {
 	-webkit-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 	background: #f2f2f2;
-	content: '';
+	content: "";
 	border-radius: 1em;
 }
 .tgl-flat:checked + .tgl-btn {
@@ -311,7 +313,7 @@ code {
 	pointer-events: none;
 	color: rgba(250, 251, 255, 0.95);
 	font-size: 90%;
-	font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+	font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 .ns-box.ns-show {
@@ -357,7 +359,7 @@ code {
 
 .ns-close::before,
 .ns-close::after {
-	content: '';
+	content: "";
 	position: absolute;
 	width: 3px;
 	height: 60%;

@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-import { HashRouter } from 'react-router-dom';
-import 'highlight.js/styles/github.css';
+import { HashRouter } from "react-router-dom";
+import "highlight.js/styles/github.css";
 
 ReactDOM.render(
-  <HashRouter>
-    <App />
-  </HashRouter>,
-  document.getElementById('root')
+	<HashRouter>
+		<App />
+	</HashRouter>,
+	document.getElementById("root"),
 );
 
 // If you want to start measuring performance in your app, pass a function
