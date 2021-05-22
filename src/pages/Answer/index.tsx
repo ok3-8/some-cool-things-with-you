@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 import marked from "marked";
 import hljs from "highlight.js";
@@ -23,35 +23,35 @@ marked.setOptions({
 	},
 });
 
-let currentIndex = 0;
+
 
 function Answer() {
 	const { tag } = useContext(Context);
+	const [currentIndex,setCurIdx] = useState(0)
 	const gitContainer = useRef<HTMLDivElement | null>(null);
 	useEffect(() => {
 		if (gitContainer.current) {
+			const currentInfo = codeJson.ocean[currentIndex];
+			const title = currentInfo.code.substring(0, currentInfo.code.indexOf("\n"));
 			const gitTalk = new Gitalk({
 				clientID: "9e9ac8734d3f7fe217d0",
 				clientSecret: "178f81d3b50142a1d80798747ab5bc4ca573f885",
 				repo: "some-cool-things-with-you", // The repository of store comments,
 				owner: "ok3-8",
-				admin: [
-					"bluezhan",
-					"Nico-M"
-				],
-				id: window.location.pathname, // Ensure uniqueness and length less than 50
+				admin: ["bluezhan", "Nico-M"],
+				id: title, // Ensure uniqueness and length less than 50
 				distractionFreeMode: false,
 			});
 			gitTalk.render(gitContainer.current);
 		}
-	}, [gitContainer]);
+	}, [gitContainer,currentIndex]);
 	function getJsonSingle() {
 		const getIndex: any = {
 			random: () => Math.floor(Math.random() * codeJson.ocean.length),
 			sequence: () =>
 				currentIndex + 1 > codeJson.ocean.length - 1 ? 0 : currentIndex + 1,
 		};
-		currentIndex = getIndex[tag]();
+		setCurIdx(getIndex[tag]());
 		return codeJson.ocean[currentIndex];
 	}
 
@@ -77,7 +77,6 @@ function Answer() {
 			getInfo.push(o);
 			window.localStorage.setItem("bestquestions", JSON.stringify(getInfo));
 		}
-		// eslint-disable-next-line
 	}, [currentIndex]);
 
 	const goodCodeHtml = {
