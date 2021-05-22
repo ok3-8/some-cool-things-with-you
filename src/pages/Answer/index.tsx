@@ -33,7 +33,7 @@ function Answer() {
 			const gitTalk = new Gitalk({
 				clientID: "9e9ac8734d3f7fe217d0",
 				clientSecret: "178f81d3b50142a1d80798747ab5bc4ca573f885",
-				repo: "https://github.com/ok3-8/some-cool-things-with-you.git", // The repository of store comments,
+				repo: "some-cool-things-with-you", // The repository of store comments,
 				owner: "ok3-8",
 				admin: [
 					"bluezhan",
