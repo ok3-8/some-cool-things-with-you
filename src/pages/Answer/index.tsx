@@ -1,8 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 
 import marked from "marked";
 import hljs from "highlight.js";
 import dayjs from "dayjs";
+import "gitalk/dist/gitalk.css";
+import Gitalk from "gitalk";
 
 import { Context } from "../../App";
 import codeJson from "./../../code_source/answer_json.json";
@@ -25,7 +27,24 @@ let currentIndex = 0;
 
 function Answer() {
 	const { tag } = useContext(Context);
-
+	const gitContainer = useRef<HTMLDivElement | null>(null);
+	useEffect(() => {
+		if (gitContainer.current) {
+			const gitTalk = new Gitalk({
+				clientID: "9e9ac8734d3f7fe217d0",
+				clientSecret: "178f81d3b50142a1d80798747ab5bc4ca573f885",
+				repo: "https://github.com/ok3-8/some-cool-things-with-you.git", // The repository of store comments,
+				owner: "ok3-8",
+				admin: [
+					"bluezhan",
+					"Nico-M"
+				],
+				id: 'ok3-8/some-cool-things-with-you', // Ensure uniqueness and length less than 50
+				distractionFreeMode: false,
+			});
+			gitTalk.render(gitContainer.current);
+		}
+	}, [gitContainer]);
 	function getJsonSingle() {
 		const getIndex: any = {
 			random: () => Math.floor(Math.random() * codeJson.ocean.length),
@@ -93,6 +112,7 @@ function Answer() {
 					<span className="progress"></span>
 				</button>
 			</div>
+			<div id="gitalk-container" className="gitalk" ref={gitContainer}></div>
 		</div>
 	);
 }
