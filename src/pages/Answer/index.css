@@ -53,3 +53,8 @@
 	width: 100%;
 	transition: width 0.8s;
 }
+
+.gitalk{
+	width: 600px;
+	margin: 20px auto;
+}

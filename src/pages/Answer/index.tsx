@@ -1,16 +1,39 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 import marked from "marked";
 import dayjs from "dayjs";
+import "gitalk/dist/gitalk.css";
+import Gitalk from "gitalk";
 
 import { Context } from "../../App";
 import codeJson from "./../../code_source/answer_json.json";
 import "./index.css";
 
-let currentIndex = 0;
-
 function Answer() {
 	const { tag } = useContext(Context);
+
+	const [currentIndex, setCurIdx] = useState(0);
+	const gitContainer = useRef<HTMLDivElement | null>(null);
+
+	useEffect(() => {
+		if (gitContainer.current) {
+			const currentInfo = codeJson.ocean[currentIndex];
+			const title = currentInfo.code.substring(
+				0,
+				currentInfo.code.indexOf("\n"),
+			);
+			const gitTalk = new Gitalk({
+				clientID: "9e9ac8734d3f7fe217d0",
+				clientSecret: "178f81d3b50142a1d80798747ab5bc4ca573f885",
+				repo: "some-cool-things-with-you", // The repository of store comments,
+				owner: "ok3-8",
+				admin: ["bluezhan", "Nico-M"],
+				id: title, // Ensure uniqueness and length less than 50
+				distractionFreeMode: false,
+			});
+			gitTalk.render(gitContainer.current);
+		}
+	}, [gitContainer, currentIndex]);
 
 	function getJsonSingle() {
 		const getIndex: any = {
@@ -18,12 +41,12 @@ function Answer() {
 			sequence: () =>
 				currentIndex + 1 > codeJson.ocean.length - 1 ? 0 : currentIndex + 1,
 		};
-		currentIndex = getIndex[tag]();
+		setCurIdx(getIndex[tag]());
 		return codeJson.ocean[currentIndex];
 	}
 
-	const [data, setDate] = React.useState(codeJson.ocean[currentIndex]);
-	const [btnState, setBtnState] = React.useState({
+	const [data, setDate] = useState(codeJson.ocean[currentIndex]);
+	const [btnState, setBtnState] = useState({
 		disabled: false,
 	});
 
@@ -44,7 +67,6 @@ function Answer() {
 			getInfo.push(o);
 			window.localStorage.setItem("bestquestions", JSON.stringify(getInfo));
 		}
-		// eslint-disable-next-line
 	}, [currentIndex]);
 
 	const goodCodeHtml = {
@@ -65,6 +87,7 @@ function Answer() {
 			setBtnState({ disabled: false });
 		}, 800);
 	}
+
 	return (
 		<div className="App answer">
 			<div className="question">
@@ -79,6 +102,7 @@ function Answer() {
 					<span className="progress"></span>
 				</button>
 			</div>
+			<div id="gitalk-container" className="gitalk" ref={gitContainer}></div>
 		</div>
 	);
 }
