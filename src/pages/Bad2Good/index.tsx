@@ -1,26 +1,12 @@
 import React, { useContext, useEffect } from "react";
 
 import marked from "marked";
-import hljs from "highlight.js";
 import dayjs from "dayjs";
 
 import { Context } from "../../App";
 import jsCodeJson from "./../../code_source/clean-code-javascript.json";
 import tsCodeJson from "./../../code_source/clean-code-typescript.json";
 import "./index.css";
-
-marked.setOptions({
-	renderer: new marked.Renderer(),
-	gfm: true,
-	pedantic: false,
-	sanitize: false,
-	breaks: true,
-	smartLists: true,
-	smartypants: true,
-	highlight: function (code) {
-		return hljs.highlightAuto(code).value;
-	},
-});
 
 const scripts: any = {
 	js: jsCodeJson,

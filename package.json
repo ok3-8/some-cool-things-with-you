@@ -24,6 +24,7 @@
 		"eslint-plugin-prettier": "^3.4.0",
 		"eslint-plugin-react": "^7.23.2",
 		"fs-extra": "^9.1.0",
+		"gh-pages": "^3.1.0",
 		"highlight.js": "^10.7.2",
 		"husky": "^6.0.0",
 		"iconv-lite": "^0.6.2",
@@ -47,7 +48,9 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"prettier": "prettier --write ./src",
-		"spider": "node ./source/get-markdown.js"
+		"spider": "node ./source/get-markdown.js",
+		"predeploy": "yarn build",
+		"deploy": "gh-pages -d docs"
 	},
 	"husky": {
 		"hooks": {
@@ -57,7 +60,7 @@
 	"lint-staged": {
 		"*.{ts,tsx}": [
 			"yarn run prettier",
-			"git add"
+			"git add ."
 		]
 	},
 	"homepage": "https://ok3-8.github.io/some-cool-things-with-you/",

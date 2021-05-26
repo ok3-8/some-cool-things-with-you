@@ -1,25 +1,11 @@
 import React, { useContext, useEffect } from "react";
 
 import marked from "marked";
-import hljs from "highlight.js";
 import dayjs from "dayjs";
 
 import { Context } from "../../App";
 import codeJson from "./../../code_source/answer_json.json";
 import "./index.css";
-
-marked.setOptions({
-	renderer: new marked.Renderer(),
-	gfm: true,
-	pedantic: false,
-	sanitize: false,
-	breaks: true,
-	smartLists: true,
-	smartypants: true,
-	highlight: function (code) {
-		return hljs.highlightAuto(code).value;
-	},
-});
 
 let currentIndex = 0;
 

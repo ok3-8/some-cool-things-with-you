@@ -7,6 +7,22 @@ import Router from "./Router";
 import avatar from "./assets/avatar5.jpg";
 import setting from "./assets/setting.png";
 
+import marked from "marked";
+import hljs from "highlight.js";
+
+marked.setOptions({
+	renderer: new marked.Renderer(),
+	gfm: true,
+	pedantic: false,
+	sanitize: false,
+	breaks: true,
+	smartLists: true,
+	smartypants: true,
+	highlight: function (code) {
+		return hljs.highlightAuto(code).value;
+	},
+});
+
 export const Context = React.createContext({ tag: "random" });
 
 function reducer(state: any, action: any) {
@@ -86,6 +102,9 @@ function App() {
 					</Link>
 					<Link to="/best-questions">
 						<CircularText text="Best Question" emoji="🍋" color="cyan" />
+					</Link>
+					<Link to="/diy-code">
+						<CircularText text="Do it yourself" emoji="🍓" color="cc99" />
 					</Link>
 					<Link to="/abcdefg">
 						<CircularText text="A B C D E F G" emoji="🍓" color="timber" />

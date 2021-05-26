@@ -94,6 +94,10 @@ code {
 	background-color: rgba(13, 202, 240, 0.2);
 	color: #0dcaf0;
 }
+.nav div.cc99 {
+	background-color: rgba(0, 102, 204, 0.32);
+	color: #0099cc;
+}
 .nav div.green {
 	background-color: rgba(25, 135, 84, 0.2);
 	color: #198754;

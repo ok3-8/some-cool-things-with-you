@@ -1,0 +1,13 @@
+.diy-code {
+	margin-left: 180px;
+}
+
+pre code {
+	padding: 10px;
+	border: 1px solid #eee;
+	position: relative;
+	display: inline-block;
+	border-radius: 6px;
+	background-color: #dff1f0;
+	font-size: 14px;
+}
