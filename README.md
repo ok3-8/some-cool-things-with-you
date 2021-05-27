@@ -1,6 +1,6 @@
 <p align="left">
   <img src="https://img.shields.io/badge/clean-code-3eaf7c.svg?style=flat-square&logo=jss" />
-  <img src="https://img.shields.io/badge/language-js&ts-orange.svg?style=flat-square&logo=typescript" />
+  <img src="https://img.shields.io/badge/language-JavaScript&TypeScript-orange.svg?style=flat-square&logo=typescript" />
   <img src="https://img.shields.io/badge/interview-answer-ff69b4.svg?style=flat-square&logo=anydesk" />
   <img src="https://img.shields.io/badge/license-MIT-ccc.svg?style=flat-square&logo=reliance-industries-limited" />
 </p>
@@ -19,9 +19,9 @@ One more thing: knowing these won't immediately make you a better software devel
 
 From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview! :muscle: :rocket: I update this repo regularly with new questions. I added the answers in the **collapsed sections** below the questions, simply click on them to expand it. It's just for fun, good luck! :heart:
 
--   [page::《clean code by javascript or typescript》](https://ok3-8.github.io/some-cool-things-with-you/#/bad-to-good)
--   [page::《best javascript questions》](https://ok3-8.github.io/some-cool-things-with-you/#/best-answer)
--   [page::《some css3 animation》](https://ok3-8.github.io/some-cool-things-with-you/#/abcdefg)
+- [page::《clean code by javascript or typescript》](https://ok3-8.github.io/some-cool-things-with-you/#/bad-to-good)
+- [page::《best javascript questions》](https://ok3-8.github.io/some-cool-things-with-you/#/best-answer)
+- [page::《some css3 animation》](https://ok3-8.github.io/some-cool-things-with-you/#/abcdefg)
 
 ## Screenshot
 
