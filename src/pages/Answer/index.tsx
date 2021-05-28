@@ -41,8 +41,9 @@ function Answer() {
 			sequence: () =>
 				currentIndex + 1 > codeJson.ocean.length - 1 ? 0 : currentIndex + 1,
 		};
-		setCurIdx(getIndex[tag]());
-		return codeJson.ocean[currentIndex];
+		const idx = getIndex[tag]();
+		setCurIdx(idx);
+		return codeJson.ocean[idx];
 	}
 
 	const [data, setDate] = useState(codeJson.ocean[currentIndex]);

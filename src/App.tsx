@@ -71,7 +71,7 @@ function App() {
 		ouibounce(document.getElementById("ouibounce-modal"), { cookieExpire: 1 });
 	}, []);
 	const { pathname } = useLocation();
-	const hasSetting = ["/land-of-lory", "/abcdefg"].includes(pathname);
+	const hasSetting = ["/bad-to-good", "/best-questions"].includes(pathname);
 
 	function handleChange(e: any) {
 		const { checked } = e.target;
@@ -111,7 +111,7 @@ function App() {
 					</Link>
 					<div
 						className="cycle"
-						style={{ display: `${hasSetting ? "none" : "block"}` }}
+						style={{ display: `${hasSetting ? "block" : "none"}` }}
 					>
 						<div className="option">
 							<div className="tg-list-item">

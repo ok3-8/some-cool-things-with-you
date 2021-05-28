@@ -11,3 +11,18 @@
 	background-color: #dff1f0;
 	font-size: 14px;
 }
+
+.diy-code .url-list {
+	background-color: #eee;
+	padding: 20px 0;
+}
+.diy-code .url-list li {
+	display: inline-block;
+	cursor: default;
+	padding: 1px 10px;
+	margin: 1px 5px;
+	border: 1px solid #999;
+}
+.diy-code .url-list li:hover {
+	background-color: beige;
+}
